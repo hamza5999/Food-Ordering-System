@@ -1,0 +1,2 @@
+class VoucherTimeline < ApplicationRecord
+end
