@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  promo_code: 1
+  promo_percentage: 9.99
+
+two:
+  name: MyString
+  promo_code: 1
+  promo_percentage: 9.99
