@@ -1,0 +1,2 @@
+class DiscountTimeline < ApplicationRecord
+end
