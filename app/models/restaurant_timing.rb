@@ -1,0 +1,2 @@
+class RestaurantTiming < ApplicationRecord
+end
