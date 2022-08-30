@@ -5,4 +5,5 @@ class Order < ApplicationRecord
   belongs_to :employee
   has_one :admin_charge
   has_one :restaurant_due
+  has_one :payment
 end
