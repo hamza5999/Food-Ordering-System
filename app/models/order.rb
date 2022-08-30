@@ -4,4 +4,5 @@ class Order < ApplicationRecord
   belongs_to :customer
   belongs_to :employee
   has_one :admin_charge
+  has_one :restaurant_due
 end
