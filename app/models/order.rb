@@ -6,4 +6,5 @@ class Order < ApplicationRecord
   has_one :admin_charge
   has_one :restaurant_due
   has_one :payment
+  has_one :rating
 end
