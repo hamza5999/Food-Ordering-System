@@ -1,4 +1,4 @@
-class CreateJoinTableAvailableMenuItems < ActiveRecord::Migration[6.1]
+class CreateJoinTableMenuMenuItems < ActiveRecord::Migration[6.1]
   def change
     create_join_table :menus, :menu_items do |t|
       # t.index [:menu_id, :menu_item_id]
