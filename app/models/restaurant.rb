@@ -4,4 +4,5 @@ class Restaurant < ApplicationRecord
   has_many :restaurant_timings
   has_many :menu_items
   has_many :menus
+  has_many :discounts
 end
