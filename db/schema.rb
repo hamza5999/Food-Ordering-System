@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_31_075353) do
+ActiveRecord::Schema.define(version: 2022_08_31_082142) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -129,6 +129,11 @@ ActiveRecord::Schema.define(version: 2022_08_31_075353) do
     t.bigint "menu_id", null: false
     t.index ["menu_id"], name: "index_menu_items_on_menu_id"
     t.index ["restaurant_id"], name: "index_menu_items_on_restaurant_id"
+  end
+
+  create_table "menu_items_menus", id: false, force: :cascade do |t|
+    t.bigint "menu_id", null: false
+    t.bigint "menu_item_id", null: false
   end
 
   create_table "menu_timings", force: :cascade do |t|
