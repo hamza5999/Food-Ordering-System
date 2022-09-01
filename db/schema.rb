@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_01_115305) do
+ActiveRecord::Schema.define(version: 2022_09_01_120208) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -284,6 +284,8 @@ ActiveRecord::Schema.define(version: 2022_09_01_115305) do
     t.datetime "end_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "voucher_id", null: false
+    t.index ["voucher_id"], name: "index_voucher_timelines_on_voucher_id"
   end
 
   create_table "vouchers", force: :cascade do |t|
@@ -318,4 +320,5 @@ ActiveRecord::Schema.define(version: 2022_09_01_115305) do
   add_foreign_key "ratings", "orders"
   add_foreign_key "restaurant_dues", "orders"
   add_foreign_key "restaurant_timings", "restaurants"
+  add_foreign_key "voucher_timelines", "vouchers"
 end
