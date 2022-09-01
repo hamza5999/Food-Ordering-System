@@ -4,5 +4,6 @@ class MenuItem < ApplicationRecord
   has_many :menu_item_menus
   has_many :menus, through: :menu_item_menus
 
-  has_and_belongs_to_many :addons
+  has_many :addon_menu_items
+  has_many :addons, through: :addon_menu_items
 end

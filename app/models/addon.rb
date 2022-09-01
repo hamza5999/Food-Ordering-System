@@ -1,4 +1,6 @@
 class Addon < ApplicationRecord
   belongs_to :restaurant
-  has_and_belongs_to_many :menu_items
+
+  has_many :addon_menu_items
+  has_many :menu_items, through: :addon_menu_items
 end
