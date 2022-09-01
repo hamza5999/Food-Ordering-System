@@ -4,4 +4,7 @@ class OrderItem < ApplicationRecord
 
   has_many :option_order_items
   has_many :options, through: :option_order_items
+
+  has_many :addon_order_items
+  has_many :addons, through: :addon_order_items
 end
