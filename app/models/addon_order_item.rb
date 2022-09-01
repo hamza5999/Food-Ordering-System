@@ -1,0 +1,2 @@
+class AddonOrderItem < ApplicationRecord
+end
