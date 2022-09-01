@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_01_110739) do
+ActiveRecord::Schema.define(version: 2022_09_01_111933) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -127,6 +127,11 @@ ActiveRecord::Schema.define(version: 2022_09_01_110739) do
     t.index ["restaurant_id"], name: "index_employees_on_restaurant_id"
   end
 
+  create_table "food_item_options", id: false, force: :cascade do |t|
+    t.bigint "food_item_id", null: false
+    t.bigint "option_id", null: false
+  end
+
   create_table "food_items", force: :cascade do |t|
     t.string "name"
     t.decimal "price"
@@ -136,11 +141,6 @@ ActiveRecord::Schema.define(version: 2022_09_01_110739) do
     t.bigint "item_group_id", null: false
     t.index ["discount_id"], name: "index_food_items_on_discount_id"
     t.index ["item_group_id"], name: "index_food_items_on_item_group_id"
-  end
-
-  create_table "food_items_options", id: false, force: :cascade do |t|
-    t.bigint "food_item_id", null: false
-    t.bigint "option_id", null: false
   end
 
   create_table "item_groups", force: :cascade do |t|
