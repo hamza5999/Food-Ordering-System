@@ -1,0 +1,2 @@
+class CustomerVoucher < ApplicationRecord
+end
