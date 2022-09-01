@@ -1,0 +1,2 @@
+class AddonMenuItem < ApplicationRecord
+end
