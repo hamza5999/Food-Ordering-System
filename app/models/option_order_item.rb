@@ -1,0 +1,2 @@
+class OptionOrderItem < ApplicationRecord
+end
