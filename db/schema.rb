@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_01_122601) do
+ActiveRecord::Schema.define(version: 2022_09_01_131516) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -102,6 +102,8 @@ ActiveRecord::Schema.define(version: 2022_09_01_122601) do
     t.datetime "end_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "discount_id", null: false
+    t.index ["discount_id"], name: "index_discount_timelines_on_discount_id"
   end
 
   create_table "discounts", force: :cascade do |t|
@@ -305,6 +307,7 @@ ActiveRecord::Schema.define(version: 2022_09_01_122601) do
   add_foreign_key "addresses", "customers"
   add_foreign_key "admin_charges", "orders"
   add_foreign_key "deal_items", "options"
+  add_foreign_key "discount_timelines", "discounts"
   add_foreign_key "discounts", "restaurants"
   add_foreign_key "employees", "employees", column: "manager_id"
   add_foreign_key "employees", "restaurants"
