@@ -1,4 +1,5 @@
 class MenuItem < ApplicationRecord
+  belongs_to :menuable, polymorphic: true
   belongs_to :restaurant
 
   has_many :menu_item_menus
