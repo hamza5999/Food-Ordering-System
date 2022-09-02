@@ -6,4 +6,5 @@ class FoodItem < ApplicationRecord
   has_many :options, through: :food_item_options
 
   has_many :order_items, as: :orderable
+  has_many :deal_items, as: :dealable
 end
