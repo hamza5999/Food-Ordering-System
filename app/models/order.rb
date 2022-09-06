@@ -1,4 +1,6 @@
 class Order < ApplicationRecord
+  enum :status, {pending: 0, complete: 1}
+
   belongs_to :restaurant
   belongs_to :voucher
   belongs_to :customer
