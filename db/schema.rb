@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_06_052402) do
+ActiveRecord::Schema.define(version: 2022_09_06_064603) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -229,6 +229,7 @@ ActiveRecord::Schema.define(version: 2022_09_06_052402) do
     t.bigint "voucher_id", null: false
     t.bigint "customer_id", null: false
     t.bigint "employee_id", null: false
+    t.integer "status", default: 0
     t.index ["customer_id"], name: "index_orders_on_customer_id"
     t.index ["employee_id"], name: "index_orders_on_employee_id"
     t.index ["restaurant_id"], name: "index_orders_on_restaurant_id"
