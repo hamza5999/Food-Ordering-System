@@ -1,4 +1,6 @@
 class Employee < ApplicationRecord
+  enum designation: {staff: 0, manager: 1}
+
   has_many :orders
   has_many :subordinates, class_name: "Employee",
                           foreign_key: "manager_id"
