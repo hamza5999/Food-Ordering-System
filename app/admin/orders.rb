@@ -1,4 +1,10 @@
 ActiveAdmin.register Order do
+  filter :restaurant
+  filter :voucher
+  filter :total_price
+  filter :delivery_address
+  filter :order_time
+
   index do
     id_column
     column :customer
