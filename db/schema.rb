@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_07_111149) do
+ActiveRecord::Schema.define(version: 2022_09_07_125831) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 2022_09_07_111149) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
-  create_table "customer_vouchers", id: false, force: :cascade do |t|
+  create_table "customer_vouchers", force: :cascade do |t|
     t.bigint "customer_id", null: false
     t.bigint "voucher_id", null: false
   end
