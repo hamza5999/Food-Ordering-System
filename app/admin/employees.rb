@@ -1,4 +1,9 @@
 ActiveAdmin.register Employee do
+  filter :first_name
+  filter :last_name
+  filter :email
+  filter :phone
+
   index do
     id_column
     column :first_name
