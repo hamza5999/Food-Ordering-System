@@ -13,4 +13,6 @@ ActiveAdmin.register Restaurant do
     column :availability
     actions
   end
+
+  permit_params :name, :timings, :location, :availability
 end
