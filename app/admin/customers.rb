@@ -12,4 +12,6 @@ ActiveAdmin.register Customer do
     column :email
     actions
   end
+
+  permit_params :first_name, :last_name, :phone, :email
 end
