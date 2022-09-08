@@ -15,4 +15,6 @@ ActiveAdmin.register Order do
     column :status
     actions
   end
+
+  permit_params :customer, :delivery_address, :total_price, :restaurant, :status
 end
