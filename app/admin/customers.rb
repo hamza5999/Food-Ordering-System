@@ -13,6 +13,16 @@ ActiveAdmin.register Customer do
     actions
   end
 
+  show do
+    attributes_table do
+      row :first_name
+      row :last_name
+      row :phone
+      row :email
+    end
+    active_admin_comments
+  end
+
   permit_params :first_name, :last_name, :phone, :email
 
   form do |f|
