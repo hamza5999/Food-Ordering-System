@@ -17,4 +17,9 @@ ActiveAdmin.register Order do
   end
 
   permit_params :delivery_address, :total_price, :status
+
+  form do |f|
+    f.inputs :delivery_address, :total_price, :status
+    actions
+  end
 end
