@@ -16,6 +16,18 @@ ActiveAdmin.register Order do
     actions
   end
 
+  show do
+    attributes_table do
+      row :customer
+      row :order_time
+      row :delivery_address
+      row :restaurant
+      row :total_price
+      row :status
+    end
+    active_admin_comments
+  end
+
   permit_params :delivery_address, :total_price, :status
 
   form do |f|
