@@ -15,4 +15,9 @@ ActiveAdmin.register Restaurant do
   end
 
   permit_params :name, :timings, :location, :availability
+
+  form do |f|
+    f.inputs :name, :timings, :location, :availability
+    actions
+  end
 end
