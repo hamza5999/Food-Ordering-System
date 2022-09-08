@@ -14,6 +14,16 @@ ActiveAdmin.register Restaurant do
     actions
   end
 
+  show do
+    attributes_table do
+      row :name
+      row :timings
+      row :location
+      row :availability
+    end
+    active_admin_comments
+  end
+
   permit_params :name, :timings, :location, :availability
 
   form do |f|
