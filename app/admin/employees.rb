@@ -15,4 +15,6 @@ ActiveAdmin.register Employee do
     column :restaurant
     actions
   end
+
+  permit_params :first_name, :last_name, :phone, :email, :restaurant, :designation
 end
