@@ -14,4 +14,9 @@ ActiveAdmin.register Customer do
   end
 
   permit_params :first_name, :last_name, :phone, :email
+
+  form do |f|
+    f.inputs :first_name, :last_name, :phone, :email
+    actions
+  end
 end
