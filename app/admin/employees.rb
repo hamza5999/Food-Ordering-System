@@ -16,6 +16,19 @@ ActiveAdmin.register Employee do
     actions
   end
 
+  show do
+    attributes_table do
+      row :first_name
+      row :last_name
+      row :email
+      row :phone
+      row :designation
+      row :manager
+      row :restaurant
+    end
+    active_admin_comments
+  end
+
   permit_params :first_name, :last_name, :phone, :email, :restaurant, :designation
 
   form do |f|
