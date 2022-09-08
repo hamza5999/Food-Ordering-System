@@ -16,5 +16,5 @@ ActiveAdmin.register Order do
     actions
   end
 
-  permit_params :customer, :delivery_address, :total_price, :restaurant, :status
+  permit_params :delivery_address, :total_price, :status
 end
