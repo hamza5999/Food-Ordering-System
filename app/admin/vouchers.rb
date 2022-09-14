@@ -10,4 +10,13 @@ ActiveAdmin.register Voucher do
     column :promo_percentage
     actions
   end
+
+  show do
+    attributes_table do
+      row :name
+      row :promo_code
+      row :promo_percentage
+    end
+    active_admin_comments
+  end
 end
