@@ -1,4 +1,6 @@
 ActiveAdmin.register AdminCharge do
+  actions :all, :except => [:edit]
+
   filter :admin_amount
   filter :order_id
 
