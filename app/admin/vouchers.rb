@@ -19,4 +19,9 @@ ActiveAdmin.register Voucher do
     end
     active_admin_comments
   end
+
+  form do |f|
+    f.inputs :name, :promo_code, :promo_percentage
+    actions
+  end
 end
