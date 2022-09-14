@@ -1,4 +1,5 @@
 ActiveAdmin.register ServiceCharge do
+  filter :cuttoff
 
   index do
     id_column
