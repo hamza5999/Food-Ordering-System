@@ -13,4 +13,11 @@ ActiveAdmin.register ServiceCharge do
     end
     active_admin_comments
   end
+
+  permit_params :cuttoff
+
+  form do |f|
+    f.inputs :cuttoff
+    actions
+  end
 end
