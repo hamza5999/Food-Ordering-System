@@ -1,4 +1,7 @@
 ActiveAdmin.register Voucher do
+  filter :name
+  filter :promo_code
+  filter :promo_percentage
 
   index do
     id_column
