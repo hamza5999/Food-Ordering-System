@@ -8,4 +8,12 @@ ActiveAdmin.register AdminCharge do
     column :order_id
     actions
   end
+
+  show do
+    attributes_table do
+      row :order_id
+      row :admin_amount
+    end
+    active_admin_comments
+  end
 end
