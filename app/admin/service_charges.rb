@@ -5,4 +5,11 @@ ActiveAdmin.register ServiceCharge do
     column :cuttoff
     actions
   end
+
+  show do
+    attributes_table do
+      row :cuttoff
+    end
+    active_admin_comments
+  end
 end
