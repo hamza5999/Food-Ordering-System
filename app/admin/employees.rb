@@ -38,7 +38,9 @@ ActiveAdmin.register Employee do
     end
     f.inputs :email
     if f.object.new_record?
-      f.input :password, :input_html => { :value => Devise.friendly_token }
+      f.inputs do
+        f.input :password, :input_html => { :value => Devise.friendly_token }
+      end
     end
     actions
   end
