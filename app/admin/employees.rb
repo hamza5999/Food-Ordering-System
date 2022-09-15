@@ -29,12 +29,13 @@ ActiveAdmin.register Employee do
     active_admin_comments
   end
 
-  permit_params :first_name, :last_name, :phone, :email, :password, :designation, :restaurant_id
+  permit_params :first_name, :last_name, :phone, :email, :password, :designation, :restaurant_id, :manager_id
 
   form do |f|
     f.inputs :first_name, :last_name, :phone, :designation
     f.inputs do
       f.input :restaurant_id, :as => :select, :collection => Restaurant.all.collect {|restaurant| [restaurant.name, restaurant.id] }
+      f.input :manager_id, :as => :select, :collection => Employee.where(designation: 1).collect {|manager| [manager.first_name, manager.id] }
     end
     f.inputs :email
     if f.object.new_record?
