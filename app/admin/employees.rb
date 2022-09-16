@@ -45,4 +45,9 @@ ActiveAdmin.register Employee do
     end
     actions
   end
+
+  collection_action :new_invitation do
+    @employee = Employee.new
+  end
+
 end
