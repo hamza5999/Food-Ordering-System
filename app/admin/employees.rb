@@ -61,4 +61,9 @@ ActiveAdmin.register Employee do
       redirect_to new_invitation_admin_employees_path
     end
   end
+
+  action_item :invite_employee, only: :index do
+    link_to 'Invite Employee', new_invitation_admin_employees_path
+  end
+
 end
