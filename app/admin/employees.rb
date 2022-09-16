@@ -50,4 +50,15 @@ ActiveAdmin.register Employee do
     @employee = Employee.new
   end
 
+  collection_action :send_invitation, :method => :post do
+    @employee = Employee.invite!(permitted_params[:employee], current_employee)
+    if @employee.errors.empty?
+      flash[:success] = "Employee has been invited successfully."
+      redirect_to admin_employees_path
+    else
+      messages = @employee.errors.full_messages.map { |msg| msg }.join
+		  flash[:error] = "Error: " + messages
+      redirect_to new_invitation_admin_employees_path
+    end
+  end
 end
