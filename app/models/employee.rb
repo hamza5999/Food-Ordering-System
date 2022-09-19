@@ -6,9 +6,9 @@ class Employee < ApplicationRecord
                           foreign_key: "manager_id"
 
   belongs_to :manager, class_name: "Employee", optional: true
-  belongs_to :restaurant
+  belongs_to :restaurant, optional: true
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end
