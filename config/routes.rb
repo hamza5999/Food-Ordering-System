@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'item_groups/index'
+  resources :item_groups
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :customers
