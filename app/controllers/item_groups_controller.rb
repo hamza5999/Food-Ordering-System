@@ -4,5 +4,6 @@ class ItemGroupsController < ApplicationController
   end
 
   def new
+    @item_group = ItemGroup.new
   end
 end
