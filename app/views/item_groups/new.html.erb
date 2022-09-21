@@ -1,0 +1,53 @@
+<div class="container mt-5">
+  <h1 class="mx-4">Add Category</h1>
+
+  <div class="card">
+    <div class="card-body">
+      <ul class="nav nav-pills nav-pills-primary mb-3" id="pills-demo-1" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link" id="pills-1-tab" data-toggle="pill" href="#pills-1" role="tab" aria-controls="pills-1" aria-selected="true">Category</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" id="pills-2-tab" data-toggle="pill" href="#pills-2" role="tab" aria-controls="pills-2" aria-selected="false">Options</a>
+        </li>
+      </ul>
+
+      <%= form_with model: @item_group do |f| %>
+        <div class="tab-content" id="pills-tabContent-1">
+          <div class="tab-pane fade show active" id="pills-1" role="tabpanel" aria-labelledby="pills-1">
+            <div class="card">
+              <h5 class="card-header">New category</h5>
+
+                <div class="card-body">
+                  <div class="form-group">
+                    <%= f.label :name, "Category name" %>
+                    <%= f.text_field :name, :required => true, :placeholder => "Enter category name", :class => "form-control" %>
+                  </div>
+                </div>
+            </div>
+          </div>
+
+          <div class="tab-pane fade" id="pills-2" role="tabpanel" aria-labelledby="pills-2">
+            <div class="card">
+              <h5 class="card-header">New options</h5>
+
+              <div class="card-body">
+                <div class="form-group">
+                  <%= f.fields_for :options do |nf| %>
+                    <%= render  "option_fields", f: nf %>
+                  <% end %>
+
+                  <div class="card-footer bg-light">
+                    <%= link_to_add_association "New option", f, :options, class: "btn btn-success text-white" %>
+                    <%= f.button "Add category", type: "submit", :class=> "btn btn-dark" %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
