@@ -25,6 +25,7 @@ gem 'devise'
 gem 'activeadmin'
 gem 'devise_invitable', '~> 2.0.0'
 gem 'net-smtp'
+gem "cocoon"
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
