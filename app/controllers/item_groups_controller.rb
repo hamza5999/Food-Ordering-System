@@ -8,6 +8,9 @@ class ItemGroupsController < ApplicationController
     @options = @item_group.options.build
   end
 
+  def create
+  end
+
   private
 
   def item_group_params
