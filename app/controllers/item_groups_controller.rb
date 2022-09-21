@@ -5,5 +5,6 @@ class ItemGroupsController < ApplicationController
 
   def new
     @item_group = ItemGroup.new
+    @options = @item_group.options.build
   end
 end
