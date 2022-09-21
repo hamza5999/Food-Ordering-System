@@ -14,3 +14,4 @@ ActiveStorage.start()
 
 window.$ = window.jQuery = require("jquery");
 require("index");
+require("@nathanvda/cocoon")
