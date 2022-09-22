@@ -17,7 +17,7 @@
           <td><%= category.name %></td>
 
           <td class="actionfield-width">
-            <%= link_to "View", nil, class: "badge badge-primary text-white" %>
+            <%= link_to "View", item_group_path(category), class: "badge badge-primary text-white" %>
             <%= link_to "Edit", nil, class: "badge badge-warning text-white" %>
             <%= link_to "Delete", item_group_path(category), method: :delete, data: {confirm: "Are you sure !! You want to delete this category?"}, class: "badge badge-danger text-white" %>
           </td>
