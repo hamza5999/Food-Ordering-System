@@ -9,6 +9,12 @@ class ItemGroupsController < ApplicationController
   end
 
   def create
+    @item_group = ItemGroup.new(item_group_params)
+    if @item_group.save
+      redirect_to item_groups_path
+    else
+      render :new
+    end
   end
 
   private
