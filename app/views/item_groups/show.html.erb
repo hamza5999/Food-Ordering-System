@@ -8,7 +8,7 @@
       </h3>
 
       <div class="ml-auto">
-        <%= link_to "Edit", nil, class: "badge badge-warning text-white" %>
+        <%= link_to "Edit", edit_item_group_path(@item_group), class: "badge badge-warning text-white" %>
         <%= link_to "Delete", item_group_path(@item_group), method: :delete, data: {confirm: "Are you sure !! You want to delete this category?"}, class: "badge badge-danger text-white" %>
       </div>
     </div>
