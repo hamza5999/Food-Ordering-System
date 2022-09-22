@@ -1,5 +1,6 @@
 <div class="container mt-5">
   <h1 class="mx-4">Categories</h1>
+
   <div class="card-body">
     <table class="table table-hover table-bordered">
       <thead class="thead-light">
@@ -17,7 +18,7 @@
           <td><%= category.name %></td>
 
           <td class="actionfield-width">
-            <%= link_to "View", item_group_path(category), class: "badge badge-primary text-white" %>
+            <%= link_to "Show", item_group_path(category), class: "badge badge-primary text-white" %>
             <%= link_to "Edit", nil, class: "badge badge-warning text-white" %>
             <%= link_to "Delete", item_group_path(category), method: :delete, data: {confirm: "Are you sure !! You want to delete this category?"}, class: "badge badge-danger text-white" %>
           </td>
