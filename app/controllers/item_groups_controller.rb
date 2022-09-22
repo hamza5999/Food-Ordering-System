@@ -17,6 +17,15 @@ class ItemGroupsController < ApplicationController
     end
   end
 
+  def destroy
+    @item_group = ItemGroup.find(params[:id])
+    if @item_group.destroy
+      redirect_to item_groups_path
+    else
+      redirect_to item_groups_path
+    end
+  end
+
   private
 
   def item_group_params
