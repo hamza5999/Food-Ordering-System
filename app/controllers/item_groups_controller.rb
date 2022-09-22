@@ -26,6 +26,11 @@ class ItemGroupsController < ApplicationController
     end
   end
 
+  def show
+    @item_group = ItemGroup.find(params[:id])
+    @options = @item_group.options
+  end
+
   private
 
   def item_group_params
