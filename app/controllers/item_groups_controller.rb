@@ -35,6 +35,15 @@ class ItemGroupsController < ApplicationController
     @item_group = ItemGroup.find(params[:id])
   end
 
+  def update
+    @item_group = ItemGroup.find(params[:id])
+    if @item_group.update(item_group_params)
+      redirect_to item_groups_path
+    else
+      render :edit
+    end
+  end
+
   private
 
   def item_group_params
