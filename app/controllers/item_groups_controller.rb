@@ -31,6 +31,10 @@ class ItemGroupsController < ApplicationController
     @options = @item_group.options
   end
 
+  def edit
+    @item_group = ItemGroup.find(params[:id])
+  end
+
   private
 
   def item_group_params
