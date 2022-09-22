@@ -33,12 +33,12 @@
               <h5 class="card-header">New options</h5>
 
               <div class="card-body">
-                <div class="form-group">
+                <div class="form-group" id="options">
                   <%= f.fields_for :options do |nf| %>
                     <%= render  "option_fields", f: nf %>
                   <% end %>
 
-                  <div class="card-footer bg-light">
+                  <div class="card-footer bg-light link">
                     <%= link_to_add_association "New option", f, :options, class: "btn btn-success text-white" %>
                     <%= f.button "Add category", type: "submit", :class=> "btn btn-dark" %>
                   </div>
