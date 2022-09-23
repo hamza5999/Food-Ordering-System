@@ -6,4 +6,6 @@ class ItemGroup < ApplicationRecord
   has_many :options, inverse_of: :item_group, dependent: :destroy
 
   accepts_nested_attributes_for :options, reject_if: :all_blank, allow_destroy: true
+
+  validates :name, presence: true
 end
