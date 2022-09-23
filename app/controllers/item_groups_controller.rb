@@ -11,8 +11,11 @@ class ItemGroupsController < ApplicationController
   def create
     @item_group = ItemGroup.new(item_group_params)
     if @item_group.save
+      flash[:notice] = "Category created successfully."
       redirect_to item_groups_path
     else
+      message = @item_group.errors.full_messages.first
+		  flash[:alert] = "Error: " + message
       render :new
     end
   end
@@ -20,8 +23,11 @@ class ItemGroupsController < ApplicationController
   def destroy
     @item_group = ItemGroup.find(params[:id])
     if @item_group.destroy
+      flash[:notice] = "Category deleted successfully."
       redirect_to item_groups_path
     else
+      message = @item_group.errors.full_messages.first
+		  flash[:alert] = "Error: " + message
       redirect_to item_groups_path
     end
   end
@@ -38,8 +44,11 @@ class ItemGroupsController < ApplicationController
   def update
     @item_group = ItemGroup.find(params[:id])
     if @item_group.update(item_group_params)
+      flash[:notice] = "Category updated successfully."
       redirect_to item_groups_path
     else
+      message = @item_group.errors.full_messages.first
+		  flash[:alert] = "Error: " + message
       render :edit
     end
   end
