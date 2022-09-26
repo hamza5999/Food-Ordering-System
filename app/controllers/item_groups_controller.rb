@@ -1,6 +1,6 @@
 class ItemGroupsController < ApplicationController
   def index
-    @category = ItemGroup.all
+    @category = ItemGroup.available_categories
   end
 
   def new
