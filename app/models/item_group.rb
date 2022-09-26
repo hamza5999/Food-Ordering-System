@@ -3,6 +3,7 @@ class ItemGroup < ApplicationRecord
   include DealableConcern
 
   scope :available_categories, -> { where(:availability => true)}
+  scope :unavailable_categories, -> { where(:availability => false)}
 
   has_many :food_items
   has_many :options, inverse_of: :item_group, dependent: :destroy
