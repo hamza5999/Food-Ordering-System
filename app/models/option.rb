@@ -1,5 +1,4 @@
 class Option < ApplicationRecord
-  enum availability: {available: 0, unavailable: 1}
 
   belongs_to :restaurant
   belongs_to :item_group
