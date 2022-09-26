@@ -7,6 +7,7 @@
         <tr>
           <th scope="col">Sr #</th>
           <th scope="col">Category</th>
+          <th scope="col">Availability</th>
           <th scope="col">Actions</th>
         </tr>
       </thead>
@@ -16,6 +17,7 @@
         <tr>
           <td scope="row"><%= index + 1 %></td>
           <td><%= category.name %></td>
+          <td class="text-capitalize"><%= category.availability %></td>
 
           <td class="actionfield-width">
             <%= link_to "Show", item_group_path(category), class: "badge badge-primary text-white" %>
