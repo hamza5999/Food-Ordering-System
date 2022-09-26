@@ -24,6 +24,15 @@
                     <%= f.label :name, "Category name" %>
                     <%= f.text_field :name, :placeholder => "Enter category name", :class => "form-control" %>
                   </div>
+
+                  <div class="form-group row">
+                    <%= f.label :availability, class: "col-sm-4 col-form-label col-form-label-sm" %>
+
+                    <div class="col-sm-8">
+                      <%= f.check_box :availability, checked: f.object.availability, class: "tgl tgl-light tgl-info", id:"cb2"%>
+                      <label class="tgl-btn" for="cb2"></label>
+                    </div>
+                  </div>
                 </div>
             </div>
           </div>
