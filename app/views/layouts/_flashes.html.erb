@@ -1,11 +1,15 @@
-<% if notice %>
-  <div class="alert alert-success alert-dismissible fade show" role="alert">
-    <%= notice %>
-  </div>
-<% end %>
+<div id="message">
+  <div style="padding: 10px;">
+    <% if notice %>
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <%= notice %>
+      </div>
+    <% end %>
 
-<% if alert %>
-  <div class="alert alert-danger alert-dismissible fade show" role="alert">
-    <%= alert %>
+    <% if alert %>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <%= alert %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
