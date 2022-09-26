@@ -17,7 +17,13 @@
         <tr>
           <td scope="row"><%= index + 1 %></td>
           <td><%= category.name %></td>
-          <td class="text-capitalize"><%= category.availability %></td>
+          <td class="text-capitalize">
+            <% if category.availability %> 
+              available
+            <% else %>
+              unavailable
+            <% end %>
+          </td>
 
           <td class="actionfield-width">
             <%= link_to "Show", item_group_path(category), class: "badge badge-primary text-white" %>

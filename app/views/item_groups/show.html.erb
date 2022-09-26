@@ -27,7 +27,11 @@
           <h5 class="font-weight-bold">Availability:</h5>
 
           <h5 class="ml-2 text-capitalize">
-            <%= @item_group.availability %>
+            <% if @item_group.availability %> 
+              available
+            <% else %>
+              unavailable
+            <% end %>
           </h5>
         </div>
 
