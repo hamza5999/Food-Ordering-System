@@ -2,6 +2,8 @@ class ItemGroup < ApplicationRecord
   include MenuableConcern
   include DealableConcern
 
+  enum availability: {available: 0, unavailable: 1}
+
   has_many :food_items
   has_many :options, inverse_of: :item_group, dependent: :destroy
 
