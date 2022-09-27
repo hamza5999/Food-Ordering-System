@@ -1,9 +1,9 @@
 <div class="container mt-5">
   <div class="d-flex">
-    <h1 class="mt-5 mx-4">Categories</h1>
+    <h1 class="mt-5 mx-4">Available Categories</h1>
     <div class="ml-auto mt-3 mr-4">
-      <%= link_to  "All", nil, class: "btn btn-success text-white" %>
-      <%= link_to  "Unavailable", nil, class: "btn btn-dark text-white" %>
+      <%= link_to  "All", all_categories_path, class: "btn btn-success text-white" %>
+      <%= link_to  "Unavailable", categories_unavailable_path, class: "btn btn-dark text-white" %>
     </div>
   </div>
   <div class="card-body">
