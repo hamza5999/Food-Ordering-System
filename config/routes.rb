@@ -7,4 +7,5 @@ Rails.application.routes.draw do
 
   root 'dashboard#index'
   get "all_categories", to: "item_groups#all_categories"
+  get "categories_unavailable", to: "item_groups#categories_unavailable"
 end
