@@ -182,7 +182,8 @@ import {default as Switchery} from "vendor/switchery-npm/index"
 
 (function(window, document, $, undefined) {
   "use strict";
-  $(function() {
+
+  $(document).on('turbolinks:load', () => {
     // init sidebars
     // --------------------
     $(".nav.metismenu").metisMenu();
@@ -281,7 +282,7 @@ import {default as Switchery} from "vendor/switchery-npm/index"
 
 (function(window, document, $, undefined) {
   "use strict";
-  $(function() {
+  $(document).on('turbolinks:load', () => {
     $("[data-q-action]").on("click", function(e) {
       e.stopPropagation();
       var $this = $(this),
