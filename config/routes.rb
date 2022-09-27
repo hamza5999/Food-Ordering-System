@@ -5,6 +5,5 @@ Rails.application.routes.draw do
   devise_for :customers
   devise_for :employees, controllers: { invitations: 'employees/invitations' }
 
-  root 'home#index'
-  get 'home/index'
+  root 'dashboard#index'
 end
