@@ -2,9 +2,7 @@
 	<!-- START RIGHT TOOLBAR ICON MENUS -->
 	<ul class="navbar-nav nav-right">
 		<li class="nav-item">
-			<a href="javascript:void(0)" class="open-search-button" data-q-action="open-site-search">
-				<i class="icon dripicons-search" id="nav-icons"></i>
-			</a>
+			<%= yield :search_icon %>
 		</li>
 
 		<li class="nav-item dropdown">
@@ -40,15 +38,5 @@
 		</li>
 	</ul>
 	<!-- END RIGHT TOOLBAR ICON MENUS -->
-	<!--START TOP TOOLBAR SEARCH -->
-
-	<form role="search" action="pages.search.html" class="navbar-form">
-		<div class="form-group">
-			<input type="text" placeholder="Search and press enter..." class="form-control navbar-search" autocomplete="off">
-			<i data-q-action="close-site-search" class="icon dripicons-cross close-search"></i>
-		</div>
-
-		<button type="submit" class="d-none">Submit</button>
-	</form>
-	<!--END TOP TOOLBAR SEARCH -->
+	<%= yield :search_bar_partial %>
 </nav>
