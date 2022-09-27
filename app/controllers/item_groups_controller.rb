@@ -57,6 +57,10 @@ class ItemGroupsController < ApplicationController
     @all = ItemGroup.all
   end
 
+  def categories_unavailable
+    @categories_unavailable = ItemGroup.unavailable_categories
+  end
+
   private
 
   def item_group_params
