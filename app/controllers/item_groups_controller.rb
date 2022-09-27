@@ -53,6 +53,10 @@ class ItemGroupsController < ApplicationController
     end
   end
 
+  def all_categories
+    @all = ItemGroup.all
+  end
+
   private
 
   def item_group_params
