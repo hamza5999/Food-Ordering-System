@@ -39,12 +39,20 @@
           <h5 class="font-weight-bold">Options:</h5>
 
           <ul class="list-group list-group-flush mx-5">
-            <% @options.each do |o| %>
+            <% if @options.empty? %>
               <li class="list-group-item text-capitalize p-0 ml-3">
                 <h6>
-                  <%= o.name %>
+                  No options
                 </h6>
               </li>
+            <% else %>
+              <% @options.each do |o| %>
+                <li class="list-group-item text-capitalize p-0 ml-3">
+                  <h6>
+                    <%= o.name %>
+                  </h6>
+                </li>
+              <% end %>
             <% end %>
           </ul>
         </div>
