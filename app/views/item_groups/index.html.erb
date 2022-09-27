@@ -10,3 +10,13 @@
     <%= render "item_groups/categories_table", item_category: @category %>
   </div>
 </div>
+
+<% content_for :search_icon do %>
+  <a href="javascript:void(0)" class="open-search-button" data-q-action="open-site-search">
+		<i class="icon dripicons-search" id="nav-icons"></i>
+	</a>
+<% end %>
+
+<% content_for :search_bar_partial do %>
+  <%= render  "item_groups/search_bar" %>
+<% end %>
