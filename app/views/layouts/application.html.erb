@@ -11,7 +11,17 @@
   </head>
 
   <body class="compact-menu pace-done">
-    <%= render "layouts/flashes" %>
-    <%= yield %>
+    <div id="app">
+      <%= render 'dashboard/sidebar' %>
+
+      <div class="content-wrapper">
+        <%= render 'dashboard/navbar' %>
+
+        <div class="content">
+          <%= render "layouts/flashes" %>
+          <%= yield %>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
