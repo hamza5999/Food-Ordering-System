@@ -19,4 +19,7 @@ class DiscountsController < ApplicationController
     end
   end
 
+  def new
+    @discount = Discount.new
+  end
 end
