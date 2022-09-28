@@ -27,7 +27,14 @@
             <td class="text-capitalize"><%= discount.name %></td>
             <td class="text-capitalize"><%= discount.kind %></td>
             <td class="text-capitalize"><%= discount.value %></td>
-            <td class="text-capitalize"><%= discount.status %></td>
+
+            <td class="text-capitalize">
+              <% if discount.status %>
+                active
+              <% else %>
+                expired
+              <% end %>
+            </td>
 
             <td class="actionfield-width">
               <%= link_to "Show", nil, class: "badge badge-primary text-white" %>
