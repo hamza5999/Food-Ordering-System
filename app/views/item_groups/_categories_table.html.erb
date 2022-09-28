@@ -9,24 +9,25 @@
   </thead>
 
   <tbody>
-  <% item_category.each_with_index do |category, index| %>
-    <tr>
-      <td scope="row"><%= index + 1 %></td>
-      <td><%= category.name %></td>
-      <td class="text-capitalize">
-        <% if category.availability %>
-          available
-        <% else %>
-          unavailable
-        <% end %>
-      </td>
+    <% item_category.each_with_index do |category, index| %>
+      <tr>
+        <td scope="row"><%= index + 1 %></td>
+        <td><%= category.name %></td>
 
-      <td class="actionfield-width">
-        <%= link_to "Show", item_group_path(category), class: "badge badge-primary text-white" %>
-        <%= link_to "Edit", edit_item_group_path(category), class: "badge badge-warning text-white" %>
-        <%= link_to "Delete", item_group_path(category), method: :delete, data: {confirm: "Are you sure !! You want to delete this category?"}, class: "badge badge-danger text-white" %>
-      </td>
-    </tr>
-  <% end %>
+        <td class="text-capitalize">
+          <% if category.availability %>
+            available
+          <% else %>
+            unavailable
+          <% end %>
+        </td>
+
+        <td class="actionfield-width">
+          <%= link_to "Show", item_group_path(category), class: "badge badge-primary text-white" %>
+          <%= link_to "Edit", edit_item_group_path(category), class: "badge badge-warning text-white" %>
+          <%= link_to "Delete", item_group_path(category), method: :delete, data: {confirm: "Are you sure !! You want to delete this category?"}, class: "badge badge-danger text-white" %>
+        </td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
