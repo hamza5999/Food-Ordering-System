@@ -23,6 +23,18 @@ class DiscountsController < ApplicationController
     @discount = Discount.new
   end
 
+  def create
+    @discount = Discount.new(discount_params)
+    if @discount.save
+      flash[:notice] = 'Discount was added successfully.'
+      redirect_to discounts_path
+    else
+      message = @discount.errors.full_messages.first
+		  flash[:alert] = "Error: " + message
+      render 'new'
+    end
+  end
+
   private
 
   def discount_params
