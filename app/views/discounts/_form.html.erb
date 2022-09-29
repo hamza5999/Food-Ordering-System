@@ -1,0 +1,34 @@
+<%= form_for discount do |f| %>
+  <div class="form-group">
+    <%= f.label :name, "Name" %>
+    <%= f.text_field :name, :placeholder => "Enter discount name", :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :kind, "Type" %>
+
+    <div>
+      <%= f.select :kind, Discount.kinds.keys, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :value, "Discount" %>
+    <%= f.number_field :value, in: 1..100, :class => "form-control" %>
+  </div>
+
+  <div class="form-group row">
+    <%= f.label :status, class: "col-sm-4 col-form-label col-form-label-sm" %>
+
+    <div class="col-sm-8">
+      <%= f.check_box :status, checked: f.object.status, class: "tgl tgl-light tgl-info", id:"cb2"%>
+      <label class="tgl-btn" for="cb2"></label>
+    </div>
+  </div>
+
+  <%= f.hidden_field :restaurant_id, value: 1 %>
+
+  <div class="card-footer bg-light link">
+    <%= f.button "Submit", type: "submit", :class=> "btn btn-dark" %>
+  </div>
+<% end %>
