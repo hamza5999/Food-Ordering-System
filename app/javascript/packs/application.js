@@ -17,3 +17,4 @@ require("index");
 require("@nathanvda/cocoon")
 import "packs/flashes"
 import "packs/categories"
+import "packs/discounts"
