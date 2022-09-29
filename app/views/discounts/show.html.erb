@@ -9,7 +9,7 @@
 
       <div class="ml-auto">
         <%= link_to "Edit", nil, class: "badge badge-warning text-white" %>
-        <%= link_to "Delete", nil, method: :delete, data: {confirm: "Are you sure !! You want to delete this discount?"}, class: "badge badge-danger text-white" %>
+        <%= link_to "Delete", discount_path(@discount), method: :delete, data: {confirm: "Are you sure !! You want to delete this discount?"}, class: "badge badge-danger text-white" %>
       </div>
     </div>
 
