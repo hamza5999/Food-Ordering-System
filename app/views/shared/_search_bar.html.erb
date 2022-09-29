@@ -1,0 +1,8 @@
+<%= search_form_for @q, class: "navbar-form" do |f| %>
+  <div class="form-group">
+    <%= f.search_field :name_cont, placeholder: "Search category and press [enter] ...", class: "form-control navbar-search", autocomplete: "off" %>
+    <i data-q-action="close-site-search" class="icon dripicons-cross close-search"></i>
+  </div>
+
+  <%= f.submit class: "d-none" %>
+<% end %>
