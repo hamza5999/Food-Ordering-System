@@ -22,4 +22,10 @@ class DiscountsController < ApplicationController
   def new
     @discount = Discount.new
   end
+
+  private
+
+  def discount_params
+    params.require(:discount).permit(:name, :kind, :value, :status, :restaurant_id)
+  end
 end
