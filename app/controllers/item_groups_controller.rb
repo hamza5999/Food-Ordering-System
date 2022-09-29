@@ -2,7 +2,7 @@ class ItemGroupsController < ApplicationController
   def index
     @q = ItemGroup.ransack(params[:q])
     @category = @q.result(distinct: true)
-    if params.dig(:q, :name_cont).blank?
+    if params[:q].blank?
       @category = ItemGroup.available_categories
     end
   end
