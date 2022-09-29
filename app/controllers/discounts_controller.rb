@@ -1,6 +1,10 @@
 class DiscountsController < ApplicationController
   def index
-    @discounts = Discount.all
+    @q = Discount.ransack(params[:q])
+    @discounts = @q.result(distinct: true)
+    if params[:q].blank?
+      @discounts = Discount.active_discounts
+    end
   end
 
   def show
