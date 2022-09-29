@@ -39,6 +39,18 @@ class DiscountsController < ApplicationController
     @discount = Discount.find(params[:id])
   end
 
+  def update
+    @discount = Discount.find(params[:id])
+      if @discount.update(discount_params)
+        flash[:notice] = 'Discount was updated successfully.'
+        redirect_to discounts_path
+      else
+        message = @discount.errors.full_messages.first
+		    flash[:alert] = "Error: " + message
+        render 'edit'
+      end
+  end
+
   private
 
   def discount_params
