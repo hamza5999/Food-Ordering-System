@@ -1,11 +1,19 @@
 <div class="container mt-5">
   <div class="d-flex">
-    <h1 class="mt-5 mx-4">Available Categories</h1>
+    <h1 class="mt-5 mx-4">Categories</h1>
+
     <div class="ml-auto mt-3 mr-4">
-      <%= link_to  "All", all_categories_path, class: "btn btn-success text-white" %>
-      <%= link_to  "Unavailable", categories_unavailable_path, class: "btn btn-dark text-white" %>
+      <%= search_form_for @q, id: "rsform" do |f| %>
+        <%= f.hidden_field :available_categories, id: "attainableCategories" %>
+        <%= f.hidden_field :unavailable_categories, id: "unattainableCategories" %>
+
+        <%= f.button "All", id: 'all_i_groups', type: "submit", class: "btn btn-success text-white" %>
+        <%= f.button "Available", id: 'available_i_groups', type: "submit", class: "btn btn-primary text-white" %>
+        <%= f.button "Unavailable", id: 'unavailable_i_groups', type: "submit", class: "btn btn-dark text-white" %>
+      <% end %>
     </div>
   </div>
+
   <div class="card-body">
     <%= render "item_groups/categories_table", item_category: @category %>
   </div>
