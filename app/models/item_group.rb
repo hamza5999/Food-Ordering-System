@@ -11,4 +11,8 @@ class ItemGroup < ApplicationRecord
   accepts_nested_attributes_for :options, reject_if: :all_blank, allow_destroy: true
 
   validates :name, presence: true
+
+  def self.ransackable_scopes(auth_object = nil)
+    %i(available_categories unavailable_categories)
+  end
 end
