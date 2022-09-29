@@ -3,8 +3,14 @@
     <h1 class="mt-5 mx-4">Discounts</h1>
 
     <div class="ml-auto mt-3 mr-4">
-      <%= link_to "All", nil, class: "btn btn-success text-white" %>
-      <%= link_to "Expired", nil, class: "btn btn-dark text-white" %>
+      <%= search_form_for @q do |f| %>
+        <%= f.hidden_field :active_discounts, id: "liveDiscounts" %>
+        <%= f.hidden_field :expired_discounts, id: "closedDiscounts" %>
+
+        <%= f.button "All", id: 'all_discounts', type: "submit", class: "btn btn-success text-white" %>
+        <%= f.button "Active", id: 'available_discounts', type: "submit", class: "btn btn-info text-white" %>
+        <%= f.button "Expired", id: 'unavailable_discounts', type: "submit", class: "btn btn-dark text-white" %>
+      <% end %>
     </div>
   </div>
 
