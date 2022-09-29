@@ -3,12 +3,12 @@
     <h1 class="mt-5 mx-4">Categories</h1>
 
     <div class="ml-auto mt-3 mr-4">
-      <%= search_form_for @q, id: "rsform" do |f| %>
+      <%= search_form_for @q do |f| %>
         <%= f.hidden_field :available_categories, id: "attainableCategories" %>
         <%= f.hidden_field :unavailable_categories, id: "unattainableCategories" %>
 
         <%= f.button "All", id: 'all_i_groups', type: "submit", class: "btn btn-success text-white" %>
-        <%= f.button "Available", id: 'available_i_groups', type: "submit", class: "btn btn-primary text-white" %>
+        <%= f.button "Available", id: 'available_i_groups', type: "submit", class: "btn btn-info text-white" %>
         <%= f.button "Unavailable", id: 'unavailable_i_groups', type: "submit", class: "btn btn-dark text-white" %>
       <% end %>
     </div>
