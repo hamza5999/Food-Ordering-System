@@ -13,7 +13,7 @@ import "./vendor/modernizr/modernizr.custom"
 import "./vendor/js-cookie/src/js.cookie"
 import "./vendor/pace/pace"
 import "./vendor/metismenu/dist/metisMenu"
-import "./vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min"
+// import "./vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min"
 import "./vendor/chart.js/dist/Chart.bundle.min"
 
 import "./js/global/app"

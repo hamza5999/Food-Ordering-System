@@ -15,6 +15,6 @@ ActiveStorage.start()
 window.$ = window.jQuery = require("jquery");
 require("index");
 require("@nathanvda/cocoon")
-import "packs/flashes"
-import "packs/categories"
-import "packs/discounts"
+import "controllers"
+// import "packs/categories"
+// import "packs/discounts"
