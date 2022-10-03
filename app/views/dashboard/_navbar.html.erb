@@ -29,9 +29,9 @@
 				</a>
 				<div class="dropdown-divider"></div>
 
-				<a class="dropdown-item" href="auth.sign-in.html">
+				<%= link_to destroy_employee_session_path, class: "dropdown-item", method: :delete do %>
 					<i class="icon dripicons-lock-open"></i> Sign Out
-				</a>
+				<% end %>
 			</div>
 		</li>
 	</ul>
