@@ -1,9 +1,7 @@
 <nav class="top-toolbar navbar navbar-desktop flex-nowrap" id="navbar-container">
 	<!-- START RIGHT TOOLBAR ICON MENUS -->
 	<ul class="navbar-nav nav-right">
-		<li class="nav-item">
-			<%= yield :search_icon %>
-		</li>
+		<%= yield :search_bar_partial %>
 
 		<li class="nav-item dropdown">
 			<a class="nav-link nav-pill user-avatar" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
@@ -37,6 +35,4 @@
 			</div>
 		</li>
 	</ul>
-	<!-- END RIGHT TOOLBAR ICON MENUS -->
-	<%= yield :search_bar_partial %>
 </nav>
