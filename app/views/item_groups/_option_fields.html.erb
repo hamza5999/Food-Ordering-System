@@ -17,6 +17,6 @@
         <%= link_to_remove_association "Delete", f, class: "btn-sm btn-danger text-white" %>
       </div>
     </div>
-    <%= f.hidden_field :restaurant_id, value: 1%>
+    <%= f.hidden_field :restaurant_id, value: current_employee.restaurant_id %>
   </div>
 </div>
