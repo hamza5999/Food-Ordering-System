@@ -1,34 +1,59 @@
 <%= form_for discount do |f| %>
-  <div class="form-group">
-    <%= f.label :name, "Name" %>
-    <%= f.text_field :name, :placeholder => "Enter discount name", :class => "form-control" %>
-  </div>
+  <div class="tab-content" id="pills-tabContent-1">
+    <div class="tab-pane fade show active" id="pills-1" role="tabpanel" aria-labelledby="pills-1">
+      <div class="card">
+        <h5 class="card-header text-capitalize"><%= controller.action_name + " Discount" %></h5>
 
-  <div class="form-group">
-    <%= f.label :kind, "Type" %>
+        <div class="card-body">
+          <div class="form-group">
+            <%= f.label :name, "Name" %>
+            <%= f.text_field :name, :placeholder => "Enter discount name", :class => "form-control" %>
+          </div>
 
-    <div>
-      <%= f.select :kind, Discount.kinds.keys, class: "form-control" %>
+          <div class="form-group">
+            <%= f.label :kind, "Type" %>
+
+            <div>
+              <%= f.select :kind, Discount.kinds.keys, class: "form-control" %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :value, "Discount" %>
+            <%= f.number_field :value, in: 1..100, :class => "form-control" %>
+          </div>
+
+          <div class="form-group row">
+            <%= f.label :status, class: "col-sm-4 col-form-label col-form-label-sm" %>
+
+            <div class="col-sm-8">
+              <%= f.check_box :status, checked: f.object.status, class: "tgl tgl-light tgl-info", id:"cb2"%>
+              <label class="tgl-btn" for="cb2"></label>
+            </div>
+          </div>
+
+          <%= f.hidden_field :restaurant_id, value: current_employee.restaurant_id %>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <div class="form-group">
-    <%= f.label :value, "Discount" %>
-    <%= f.number_field :value, in: 1..100, :class => "form-control" %>
-  </div>
+    <div class="tab-pane fade" id="pills-2" role="tabpanel" aria-labelledby="pills-2">
+      <div class="card">
+        <h5 class="card-header text-capitalize"><%= controller.action_name + " Timelines" %></h5>
 
-  <div class="form-group row">
-    <%= f.label :status, class: "col-sm-4 col-form-label col-form-label-sm" %>
+        <div class="card-body">
+          <div class="form-group" id="timelines">
+            <%= f.fields_for :discount_timelines do |nf| %>
+              <%= render "discount_timeline_fields", f: nf %>
+            <% end %>
 
-    <div class="col-sm-8">
-      <%= f.check_box :status, checked: f.object.status, class: "tgl tgl-light tgl-info", id:"cb2"%>
-      <label class="tgl-btn" for="cb2"></label>
+            <div class="card-footer bg-light link">
+              <%= link_to_add_association "New timeline", f, :discount_timelines, class: "btn btn-success text-white" %>
+              <%= f.button "Submit", type: "submit", class: "btn btn-dark" %>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-
-  <%= f.hidden_field :restaurant_id, value: current_employee.restaurant_id %>
-
-  <div class="card-footer bg-light link">
-    <%= f.button "Submit", type: "submit", :class=> "btn btn-dark" %>
   </div>
 <% end %>
