@@ -58,6 +58,6 @@ class DiscountsController < ApplicationController
   private
 
   def discount_params
-    params.require(:discount).permit(:name, :kind, :value, :status, :restaurant_id)
+    params.require(:discount).permit(:name, :kind, :value, :status, :restaurant_id, discount_timelines_attributes: [:id, :start_date, :end_date, :_destroy])
   end
 end
