@@ -11,4 +11,8 @@ class Employee < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  def employee_fullname
+    return "#{first_name} #{last_name}"
+  end
 end
