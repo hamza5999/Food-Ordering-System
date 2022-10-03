@@ -3,36 +3,38 @@
 	<ul class="navbar-nav nav-right">
 		<%= yield :search_bar_partial %>
 
-		<li class="nav-item dropdown">
-			<a class="nav-link nav-pill user-avatar" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-				<img src="../assets/img/avatars/1.jpg" class="w-35 rounded-circle" alt="Albert Einstein">
-			</a>
+		<% if current_employee %>
+			<li class="nav-item dropdown">
+				<a class="nav-link nav-pill user-avatar" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+					<img src="../assets/img/avatars/1.jpg" class="w-35 rounded-circle" alt="Albert Einstein">
+				</a>
 
-			<div class="dropdown-menu dropdown-menu-right dropdown-menu-accout">
-				<div class="dropdown-header pb-3">
-					<div class="media d-user">
-						<img class="align-self-center mr-3 w-40 rounded-circle" src="../assets/img/avatars/1.jpg" alt="Albert Einstein">
+				<div class="dropdown-menu dropdown-menu-right dropdown-menu-accout">
+					<div class="dropdown-header pb-3">
+						<div class="media d-user">
+							<img class="align-self-center mr-3 w-40 rounded-circle" src="../assets/img/avatars/1.jpg" alt="Albert Einstein">
 
-						<div class="media-body">
-							<h5 class="mt-0 mb-0">Albert Einstein</h5>
-							<span>support@authenticgoods.co</span>
+							<div class="media-body">
+								<h5 class="mt-0 mb-0">Albert Einstein</h5>
+								<span>support@authenticgoods.co</span>
+							</div>
 						</div>
 					</div>
+
+					<a class="dropdown-item" href="pages.profile.html">
+						<i class="icon dripicons-user"></i> Profile
+					</a>
+
+					<a class="dropdown-item" href="pages.my-account.html">
+						<i class="icon dripicons-gear"></i> Account Settings
+					</a>
+					<div class="dropdown-divider"></div>
+
+					<%= link_to destroy_employee_session_path, class: "dropdown-item", method: :delete do %>
+						<i class="icon dripicons-lock-open"></i> Sign Out
+					<% end %>
 				</div>
-
-				<a class="dropdown-item" href="pages.profile.html">
-					<i class="icon dripicons-user"></i> Profile
-				</a>
-
-				<a class="dropdown-item" href="pages.my-account.html">
-					<i class="icon dripicons-gear"></i> Account Settings 
-				</a>
-				<div class="dropdown-divider"></div>
-
-				<%= link_to destroy_employee_session_path, class: "dropdown-item", method: :delete do %>
-					<i class="icon dripicons-lock-open"></i> Sign Out
-				<% end %>
-			</div>
-		</li>
+			</li>
+		<% end %>
 	</ul>
 </nav>
