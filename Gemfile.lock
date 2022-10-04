@@ -104,6 +104,8 @@ GEM
       actionmailer (>= 5.0)
       devise (>= 4.6)
     digest (3.1.0)
+    discard (1.2.1)
+      activerecord (>= 4.2, < 8)
     erubi (1.11.0)
     ffi (1.15.5)
     formtastic (4.0.0)
@@ -287,6 +289,7 @@ DEPENDENCIES
   devise
   devise-bootstrap-views (~> 1.0)
   devise_invitable (~> 2.0.0)
+  discard (~> 1.2)
   jbuilder (~> 2.7)
   listen (~> 3.3)
   net-smtp

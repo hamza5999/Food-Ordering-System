@@ -28,6 +28,7 @@ gem 'devise_invitable', '~> 2.0.0'
 gem 'net-smtp'
 gem "cocoon"
 gem 'ransack'
+gem 'discard', '~> 1.2'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
