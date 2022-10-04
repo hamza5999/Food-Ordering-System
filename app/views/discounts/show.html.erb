@@ -50,6 +50,29 @@
             <% end %>
           </h5>
         </div>
+
+        <div class="d-flex flex-row mt-3">
+          <h5 class="font-weight-bold">Timelines:</h5>
+
+          <ul class="list-group list-group-flush mx-5">
+            <% if @discount_timelines.empty? %>
+              <li class="list-group-item text-capitalize p-0 ml-3">
+                <h6>
+                  No timeline available
+                </h6>
+              </li>
+            <% else %>
+              <% @discount_timelines.each do |dt| %>
+                <li class="list-group-item text-capitalize p-0 ml-3">
+                  <h6>
+                    <b>From: </b><%= getDateOnly(dt.start_date) %>
+                    <b>To: </b><%= getDateOnly(dt.end_date) %>
+                  </h6>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
