@@ -1,2 +1,5 @@
 module DiscountsHelper
+  def getDateOnly(start_date)
+    start_date.strftime("%d-%m-%Y")
+  end
 end
