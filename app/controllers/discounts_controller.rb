@@ -9,6 +9,7 @@ class DiscountsController < ApplicationController
 
   def show
     @discount = Discount.find(params[:id])
+    @discount_timelines = @discount.discount_timelines
   end
 
   def destroy
