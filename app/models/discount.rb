@@ -1,4 +1,6 @@
 class Discount < ApplicationRecord
+  include Discard::Model
+
   enum kind: {fixed: 0, percentage: 1}
 
   scope :active_discounts, -> { where(status: 1) }
