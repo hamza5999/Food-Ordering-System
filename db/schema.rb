@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_28_121834) do
+ActiveRecord::Schema.define(version: 2022_10_04_125712) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -133,6 +133,8 @@ ActiveRecord::Schema.define(version: 2022_09_28_121834) do
     t.bigint "restaurant_id", null: false
     t.integer "kind", default: 0
     t.boolean "status", default: true
+    t.datetime "discarded_at"
+    t.index ["discarded_at"], name: "index_discounts_on_discarded_at"
     t.index ["restaurant_id"], name: "index_discounts_on_restaurant_id"
   end
 
