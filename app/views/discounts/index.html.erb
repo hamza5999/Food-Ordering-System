@@ -46,7 +46,7 @@
             <td class="actionfield-width">
               <%= link_to "Show", discount_path(discount), class: "badge badge-primary text-white" %>
               <%= link_to "Edit", edit_discount_path(discount), class: "badge badge-warning text-white" %>
-              <%= link_to "Delete", discount_path(discount), method: :delete, data: {confirm: "Are you sure !! You want to delete this discount?"}, class: "badge badge-danger text-white" %>
+              <%= link_to "Discard", discount_path(discount), method: :delete, data: {confirm: "Are you sure !! You want to discard this discount?"}, class: "badge badge-danger text-white" %>
             </td>
           </tr>
         <% end %>
