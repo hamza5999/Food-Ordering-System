@@ -18,7 +18,7 @@ class DiscountsController < ApplicationController
       flash[:notice] = 'Discount was deleted successfully.'
       redirect_to discounts_path
     else
-      message = @item_group.errors.full_messages.first
+      message = @discount.errors.full_messages.first.to_s
 		  flash[:alert] = "Error: " + message
       redirect_to discounts_path
     end
@@ -34,7 +34,7 @@ class DiscountsController < ApplicationController
       flash[:notice] = 'Discount was added successfully.'
       redirect_to discounts_path
     else
-      message = @discount.errors.full_messages.first
+      message = @discount.errors.full_messages.first.to_s
 		  flash[:alert] = "Error: " + message
       render 'new'
     end
@@ -50,7 +50,7 @@ class DiscountsController < ApplicationController
         flash[:notice] = 'Discount was updated successfully.'
         redirect_to discounts_path
       else
-        message = @discount.errors.full_messages.first
+        message = @discount.errors.full_messages.first.to_s
 		    flash[:alert] = "Error: " + message
         render 'edit'
       end
