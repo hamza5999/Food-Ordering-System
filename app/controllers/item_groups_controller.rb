@@ -17,7 +17,7 @@ class ItemGroupsController < ApplicationController
       flash[:notice] = "Category created successfully."
       redirect_to item_groups_path
     else
-      message = @item_group.errors.full_messages.first
+      message = @item_group.errors.full_messages.first.to_s
 		  flash[:alert] = "Error: " + message
       render :new
     end
@@ -29,7 +29,7 @@ class ItemGroupsController < ApplicationController
       flash[:notice] = "Category deleted successfully."
       redirect_to item_groups_path
     else
-      message = @item_group.errors.full_messages.first
+      message = @item_group.errors.full_messages.first.to_s
 		  flash[:alert] = "Error: " + message
       redirect_to item_groups_path
     end
@@ -50,7 +50,7 @@ class ItemGroupsController < ApplicationController
       flash[:notice] = "Category updated successfully."
       redirect_to item_groups_path
     else
-      message = @item_group.errors.full_messages.first
+      message = @item_group.errors.full_messages.first.to_s
 		  flash[:alert] = "Error: " + message
       render :edit
     end
