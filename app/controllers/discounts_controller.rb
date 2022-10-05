@@ -14,8 +14,12 @@ class DiscountsController < ApplicationController
 
   def destroy
     @discount = Discount.find(params[:id])
-    if @discount.destroy
+    if @discount.discarded?
+      @discount.destroy
       flash[:notice] = 'Discount was deleted successfully.'
+      redirect_to discounts_path
+    elsif @discount.discard
+      flash[:notice] = 'Discount was discarded successfully.'
       redirect_to discounts_path
     else
       message = @discount.errors.full_messages.first.to_s
