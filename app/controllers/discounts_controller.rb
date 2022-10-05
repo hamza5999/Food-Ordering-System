@@ -60,6 +60,10 @@ class DiscountsController < ApplicationController
       end
   end
 
+  def discarded
+    @discarded_discounts = Discount.discarded
+  end
+
   private
 
   def discount_params
