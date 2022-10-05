@@ -1,9 +1,9 @@
 class DiscountsController < ApplicationController
   def index
     @q = Discount.ransack(params[:q])
-    @discounts = @q.result(distinct: true)
+    @discounts = @q.result(distinct: true).kept
     if params[:q].blank?
-      @discounts = Discount.active_discounts
+      @discounts = Discount.active_discounts.kept
     end
   end
 
