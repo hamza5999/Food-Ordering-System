@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :item_groups
+  resources :item_groups do
+    get :discarded, on: :collection
+    get :restore, on: :member
+  end
 
   resources :discounts do
     get :discarded, on: :collection
