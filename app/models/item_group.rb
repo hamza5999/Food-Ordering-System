@@ -1,4 +1,6 @@
 class ItemGroup < ApplicationRecord
+  include Discard::Model
+
   include MenuableConcern
   include DealableConcern
 
