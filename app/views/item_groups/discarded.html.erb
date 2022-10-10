@@ -33,7 +33,7 @@
 
               <td class="actionfield-width">
                 <%= link_to "Show", item_group_path(dc), class: "badge badge-primary text-white" %>
-                <%= link_to "Restore", nil, method: :get, class: "badge badge-success text-white" %>
+                <%= link_to "Restore", restore_item_group_path(dc), method: :get, class: "badge badge-success text-white" %>
                 <%= link_to "Delete", item_group_path(dc), method: :delete, data: {confirm: "Are you sure !! You want to permanently delete this category?"}, class: "badge badge-danger text-white" %>
               </td>
             </tr>
