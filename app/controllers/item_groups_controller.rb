@@ -64,6 +64,18 @@ class ItemGroupsController < ApplicationController
     @discarded_categories = ItemGroup.discarded
   end
 
+  def restore
+    @item_group = ItemGroup.find(params[:id])
+    if @item_group.undiscard
+      flash[:notice] = 'Category was restored successfully.'
+      redirect_to item_groups_path
+    else
+      message = @item_group.errors.full_messages.first.to_s
+      flash[:alert] = "Error: " + message
+      render 'discarded'
+    end
+  end
+
   private
 
   def item_group_params
