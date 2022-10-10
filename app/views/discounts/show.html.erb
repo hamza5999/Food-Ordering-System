@@ -8,8 +8,13 @@
       </h3>
 
       <div class="ml-auto">
-        <%= link_to "Edit", edit_discount_path(@discount), class: "badge badge-warning text-white" %>
-        <%= link_to "Discard", discount_path(@discount), method: :delete, data: {confirm: "Are you sure !! You want to discard this discount?"}, class: "badge badge-danger text-white" %>
+        <% if @discount.discarded? %>
+          <%= link_to "Restore", restore_discount_path(@discount), method: :get, class: "badge badge-success text-white" %>
+          <%= link_to "Delete", discount_path(@discount), method: :delete, data: {confirm: "Are you sure !! You want to permanently delete this discount?"}, class: "badge badge-danger text-white" %>
+        <% else %>
+          <%= link_to "Edit", edit_discount_path(@discount), class: "badge badge-warning text-white" %>
+          <%= link_to "Discard", discount_path(@discount), method: :delete, data: {confirm: "Are you sure !! You want to discard this discount?"}, class: "badge badge-danger text-white" %>
+        <% end %>
       </div>
     </div>
 
