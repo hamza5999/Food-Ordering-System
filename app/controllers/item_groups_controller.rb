@@ -14,7 +14,7 @@ class ItemGroupsController < ApplicationController
   def create
     @item_group = ItemGroup.new(item_group_params)
     if @item_group.save
-      flash[:notice] = "Category created successfully."
+      flash[:notice] = "Category was created successfully."
       redirect_to item_groups_path
     else
       message = @item_group.errors.full_messages.first.to_s
@@ -51,7 +51,7 @@ class ItemGroupsController < ApplicationController
   def update
     @item_group = ItemGroup.find(params[:id])
     if @item_group.update(item_group_params)
-      flash[:notice] = "Category updated successfully."
+      flash[:notice] = "Category was updated successfully."
       redirect_to item_groups_path
     else
       message = @item_group.errors.full_messages.first.to_s
