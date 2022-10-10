@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_04_125712) do
+ActiveRecord::Schema.define(version: 2022_10_10_071347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -190,6 +190,8 @@ ActiveRecord::Schema.define(version: 2022_10_04_125712) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
     t.boolean "availability", default: true
+    t.datetime "discarded_at"
+    t.index ["discarded_at"], name: "index_item_groups_on_discarded_at"
   end
 
   create_table "menu_item_menus", id: false, force: :cascade do |t|
