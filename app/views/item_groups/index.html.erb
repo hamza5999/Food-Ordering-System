@@ -42,7 +42,7 @@
             <td class="actionfield-width">
               <%= link_to "Show", item_group_path(category), class: "badge badge-primary text-white" %>
               <%= link_to "Edit", edit_item_group_path(category), class: "badge badge-warning text-white" %>
-              <%= link_to "Delete", item_group_path(category), method: :delete, data: {confirm: "Are you sure !! You want to delete this category?"}, class: "badge badge-danger text-white" %>
+              <%= link_to "Discard", item_group_path(category), method: :delete, data: {confirm: "Are you sure !! You want to discard this category?"}, class: "badge badge-danger text-white" %>
             </td>
           </tr>
         <% end %>
