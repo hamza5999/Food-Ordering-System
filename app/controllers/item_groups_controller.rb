@@ -60,6 +60,10 @@ class ItemGroupsController < ApplicationController
     end
   end
 
+  def discarded
+    @discarded_categories = ItemGroup.discarded
+  end
+
   private
 
   def item_group_params
