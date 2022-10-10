@@ -1,9 +1,9 @@
 class ItemGroupsController < ApplicationController
   def index
     @q = ItemGroup.ransack(params[:q])
-    @category = @q.result(distinct: true)
+    @categories = @q.result(distinct: true)
     if params[:q].blank?
-      @category = ItemGroup.available_categories
+      @categories = ItemGroup.available_categories
     end
   end
 
