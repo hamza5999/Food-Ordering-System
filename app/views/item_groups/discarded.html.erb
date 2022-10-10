@@ -1,0 +1,45 @@
+<div class="container mt-4">
+  <div class="d-flex">
+    <h1 class="mt-5 mx-4">Discarded Categories</h1>
+  </div>
+
+  <div class="card-body">
+    <% if @discarded_categories.empty? %>
+      <h3 class="border ml-1">No discarded categories</h3>
+    <% else %>
+      <table class="table table-hover table-bordered">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Sr #</th>
+            <th scope="col">Name</th>
+            <th scope="col">Availability</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @discarded_categories.each_with_index do |dc, index| %>
+            <tr>
+              <td scope="row"><%= index + 1 %></td>
+              <td class="text-capitalize"><%= dc.name %></td>
+
+              <td class="text-capitalize">
+                <% if dc.availability %>
+                  available
+                <% else %>
+                  unavailable
+                <% end %>
+              </td>
+
+              <td class="actionfield-width">
+                <%= link_to "Show", nil, class: "badge badge-primary text-white" %>
+                <%= link_to "Restore", nil, method: :get, class: "badge badge-success text-white" %>
+                <%= link_to "Delete", nil, method: :delete, data: {confirm: "Are you sure !! You want to permanently delete this category?"}, class: "badge badge-danger text-white" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+</div>
