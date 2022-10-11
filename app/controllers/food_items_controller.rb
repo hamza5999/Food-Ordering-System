@@ -26,4 +26,8 @@ class FoodItemsController < ApplicationController
       redirect_to food_items_path
     end
   end
+
+  def discarded
+    @discarded_fooditems = FoodItem.discarded
+  end
 end
