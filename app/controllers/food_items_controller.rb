@@ -1,9 +1,9 @@
 class FoodItemsController < ApplicationController
   def index
     @q = FoodItem.ransack(params[:q])
-    @food_items = @q.result(distinct: true)
+    @food_items = @q.result(distinct: true).kept
     if params[:q].blank?
-      @food_items = FoodItem.all
+      @food_items = FoodItem.kept
     end
   end
 
