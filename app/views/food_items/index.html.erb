@@ -21,13 +21,15 @@
             <td scope="row"><%= index + 1 %></td>
             <td class="text-capitalize"><%= fooditem.name %></td>
             <td class="text-capitalize"><%= fooditem.item_group.name %></td>
+
             <% if fooditem.discount %>
               <td class="text-capitalize"><%= fooditem.discount.name %></td>
             <% else %>
               <td class="text-capitalize">None</td>
             <% end %>
+
             <td class="actionfield-width">
-              <%= link_to "Show", nil, class: "badge badge-primary text-white" %>
+              <%= link_to "Show", food_item_path(fooditem), class: "badge badge-primary text-white" %>
               <%= link_to "Edit", nil, class: "badge badge-warning text-white" %>
               <%= link_to "Discard", nil, method: :delete, data: {confirm: "Are you sure !! You want to discard this food item?"}, class: "badge badge-danger text-white" %>
             </td>
