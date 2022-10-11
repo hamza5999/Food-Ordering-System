@@ -30,4 +30,16 @@ class FoodItemsController < ApplicationController
   def discarded
     @discarded_fooditems = FoodItem.discarded
   end
+
+  def restore
+    @food_item = FoodItem.find(params[:id])
+    if @food_item.undiscard
+      flash[:notice] = 'Food item was restored successfully.'
+      redirect_to food_items_path
+    else
+      message = @food_item.errors.full_messages.first.to_s
+      flash[:alert] = "Error: " + message
+      render 'discarded'
+    end
+  end
 end
