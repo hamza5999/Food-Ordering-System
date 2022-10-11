@@ -1,4 +1,6 @@
 class FoodItem < ApplicationRecord
+  include Discard::Model
+
   include OrderableConcern
   include DealableConcern
 
