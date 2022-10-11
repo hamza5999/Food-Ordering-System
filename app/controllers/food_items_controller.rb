@@ -7,6 +7,10 @@ class FoodItemsController < ApplicationController
     end
   end
 
+  def new
+    @food_item = FoodItem.new
+  end
+
   def show
     @food_item = FoodItem.find(params[:id])
   end
