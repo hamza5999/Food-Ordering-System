@@ -13,8 +13,12 @@ class FoodItemsController < ApplicationController
 
   def destroy
     @food_item = FoodItem.find(params[:id])
-    if @food_item.destroy
+    if @food_item.discarded?
+      @food_item.destroy
       flash[:notice] = 'Food item was deleted successfully.'
+      redirect_to food_items_path
+    elsif @food_item.discard
+      flash[:notice] = 'Food item was discarded successfully.'
       redirect_to food_items_path
     else
       message = @food_item.errors.full_messages.first.to_s
