@@ -35,7 +35,7 @@
 
               <td class="actionfield-width">
                 <%= link_to "Show", food_item_path(dfi), class: "badge badge-primary text-white" %>
-                <%= link_to "Restore", nil, method: :get, class: "badge badge-success text-white" %>
+                <%= link_to "Restore", restore_food_item_path(dfi), method: :get, class: "badge badge-success text-white" %>
                 <%= link_to "Delete", food_item_path(dfi), method: :delete, data: {confirm: "Are you sure !! You want to permanently delete this food item?"}, class: "badge badge-danger text-white" %>
               </td>
             </tr>
