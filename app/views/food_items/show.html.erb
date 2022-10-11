@@ -1,0 +1,48 @@
+<div class="container mt-5">
+  <h1 class="mt-4 mx-3">View Food Item</h1>
+
+  <div class="card mt-4 col-sm-9">
+    <div class="card-header d-flex text-capitalize">
+      <h3>
+        <%= @food_item.name %>
+      </h3>
+
+      <div class="ml-auto">
+        <%= link_to "Edit", nil, class: "badge badge-warning text-white" %>
+        <%= link_to "Discard", nil, method: :delete, data: {confirm: "Are you sure !! You want to discard this discount?"}, class: "badge badge-danger text-white" %>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <div class="d-flex flex-column">
+        <div class="d-flex flex-row">
+          <h5 class="font-weight-bold">Name:</h5>
+
+          <h5 class="ml-2">
+            <%= @food_item.name %>
+          </h5>
+        </div>
+
+        <div class="d-flex flex-row">
+          <h5 class="font-weight-bold">Category:</h5>
+
+          <h5 class="ml-2 text-capitalize">
+            <%= @food_item.item_group.name %>
+          </h5>
+        </div>
+
+        <div class="d-flex flex-row">
+          <h5 class="font-weight-bold">Discount:</h5>
+
+          <h5 class="ml-2 text-capitalize">
+            <% if @food_item.discount %>
+              <%= @food_item.discount.name %>
+            <% else %>
+              none
+            <% end %>
+          </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
