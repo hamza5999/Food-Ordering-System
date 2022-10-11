@@ -1,0 +1,47 @@
+<div class="container mt-4">
+  <div class="d-flex">
+    <h1 class="mt-5 mx-4">Discarded Food Items</h1>
+  </div>
+
+  <div class="card-body">
+    <% if @discarded_fooditems.empty? %>
+      <h3 class="border ml-1">No discarded food items</h3>
+    <% else %>
+      <table class="table table-hover table-bordered">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Sr #</th>
+            <th scope="col">Name</th>
+            <th scope="col">Category</th>
+            <th scope="col">Discount</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @discarded_fooditems.each_with_index do |dfi, index| %>
+            <tr>
+              <td scope="row"><%= index + 1 %></td>
+              <td class="text-capitalize"><%= dfi.name %></td>
+              <td class="text-capitalize"><%= dfi.item_group.name %></td>
+
+              <td class="text-capitalize">
+                <% if dfi.discount %>
+                  <%= dfi.discount.name %>
+                <% else %>
+                  none
+                <% end %>
+              </td>
+
+              <td class="actionfield-width">
+                <%= link_to "Show", nil, class: "badge badge-primary text-white" %>
+                <%= link_to "Restore", nil, method: :get, class: "badge badge-success text-white" %>
+                <%= link_to "Delete", nil, method: :delete, data: {confirm: "Are you sure !! You want to permanently delete this food item?"}, class: "badge badge-danger text-white" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+</div>
