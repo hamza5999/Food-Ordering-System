@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :food_items
+  resources :food_items do
+    get :discarded, on: :collection
+    get :restore, on: :member
+  end
   resources :item_groups do
     get :discarded, on: :collection
     get :restore, on: :member
