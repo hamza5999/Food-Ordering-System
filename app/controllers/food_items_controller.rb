@@ -10,4 +10,16 @@ class FoodItemsController < ApplicationController
   def show
     @food_item = FoodItem.find(params[:id])
   end
+
+  def destroy
+    @food_item = FoodItem.find(params[:id])
+    if @food_item.destroy
+      flash[:notice] = 'Food item was deleted successfully.'
+      redirect_to food_items_path
+    else
+      message = @food_item.errors.full_messages.first.to_s
+		  flash[:alert] = "Error: " + message
+      redirect_to food_items_path
+    end
+  end
 end
