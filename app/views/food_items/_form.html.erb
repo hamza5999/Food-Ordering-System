@@ -15,7 +15,7 @@
               <%= f.label :item_group, "Category" %>
 
               <div>
-                <%= f.collection_select :item_group, ItemGroup.order(:name), :id, :name, {prompt: "Select category"}, class: "form-control border-secondary text-dark" %>
+                <%= f.collection_select :item_group, ItemGroup.order(:name), :id, :name, {prompt: "Select category"}, class: "form-control border-secondary text-dark", id: "categories_field" %>
               </div>
             </div>
 
