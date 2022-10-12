@@ -205,16 +205,16 @@ import {default as Switchery} from "vendor/switchery-npm/index"
     });
     // If sidebar is set to static
     // ------------------------------------------------
-    if($("body.fixed-menu")){
-      $("body.fixed-menu .main-menu").mCustomScrollbar({
-        theme: "minimal-dark",
-        scrollInertia: 100,
-        setTop: "-999999px",
-        mouseWheel: {
-          preventDefault: true
-        }
-      });
-    }
+    // if($("body.fixed-menu")){
+    //   $("body.fixed-menu .main-menu").mCustomScrollbar({
+    //     theme: "minimal-dark",
+    //     scrollInertia: 100,
+    //     setTop: "-999999px",
+    //     mouseWheel: {
+    //       preventDefault: true
+    //     }
+    //   });
+    // }
 
     // Toggle menu states
     // ----------------------------------
