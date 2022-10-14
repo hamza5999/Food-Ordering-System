@@ -3,6 +3,9 @@ Rails.application.routes.draw do
     get :discarded, on: :collection
     get :restore, on: :member
   end
+
+  get '/options_price', to: 'food_items#options'
+
   resources :item_groups do
     get :discarded, on: :collection
     get :restore, on: :member
