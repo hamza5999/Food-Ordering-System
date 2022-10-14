@@ -46,4 +46,13 @@ class FoodItemsController < ApplicationController
       render 'discarded'
     end
   end
+
+  def options
+    @category = ItemGroup.find(params[:category])
+    @options = @category.options
+    @option_count = @options.count
+    respond_to do |format|
+      format.js { render partial: 'food_items/options', locals: {ocount: @option_count, options: @options} }
+    end
+  end
 end
