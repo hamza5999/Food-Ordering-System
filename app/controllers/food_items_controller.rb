@@ -15,6 +15,10 @@ class FoodItemsController < ApplicationController
     @food_item = FoodItem.find(params[:id])
   end
 
+  def edit
+    @food_item = FoodItem.find(params[:id])
+  end
+
   def destroy
     @food_item = FoodItem.find(params[:id])
     if @food_item.discarded?
