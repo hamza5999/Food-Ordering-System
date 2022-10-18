@@ -63,13 +63,25 @@ class FoodItemsController < ApplicationController
   def create
     @food_item = FoodItem.new(food_item_params)
     if @food_item.save
-      flash[:success] = "Food item was created successfully."
+      flash[:notice] = "Food item was created successfully."
       redirect_to food_items_path
     else
       message = @food_item.errors.full_messages.first.to_s
       flash[:alert] = "Error: " + message
       render 'new'
     end
+  end
+
+  def update
+    @food_item = FoodItem.find(params[:id])
+      if @food_item.update(food_item_params)
+        flash[:notice] = "Food item was updated successfully."
+        redirect_to food_items_path
+      else
+        message = @food_item.errors.full_messages.first.to_s
+        flash[:alert] = "Error: " + message
+        render 'edit'
+      end
   end
 
   private
