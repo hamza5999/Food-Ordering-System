@@ -12,18 +12,18 @@
 
           <div class="row">
             <div class="col-5 form-group mr-3">
-              <%= f.label :item_group, "Category" %>
+              <%= f.label :item_group_id, "Category" %>
 
               <div>
-                <%= f.collection_select :item_group, ItemGroup.order(:name), :id, :name, {prompt: "Select category"}, class: "form-control border-secondary text-dark", id: "categories_field" %>
+                <%= f.collection_select :item_group_id, ItemGroup.order(:name), :id, :name, {prompt: "Select category"}, class: "form-control border-secondary text-dark", id: "categories_field" %>
               </div>
             </div>
 
             <div class="col-4 form-group ml-3">
-              <%= f.label :discount, "Discount" %>
+              <%= f.label :discount_id, "Discount" %>
 
               <div>
-                <%= f.collection_select :discount, Discount.order(:name), :id, :name, {prompt: "Select discount"}, class: "form-control border-secondary text-dark" %>
+                <%= f.collection_select :discount_id, Discount.order(:name), :id, :name, {prompt: "Select discount"}, class: "form-control border-secondary text-dark" %>
               </div>
             </div>
           </div>
