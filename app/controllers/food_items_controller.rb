@@ -56,6 +56,18 @@ class FoodItemsController < ApplicationController
     end
   end
 
+  def create
+    @food_item = FoodItem.new(food_item_params)
+    if @food_item.save
+      flash[:success] = "Food item was created successfully."
+      redirect_to food_items_path
+    else
+      message = @food_item.errors.full_messages.first.to_s
+      flash[:alert] = "Error: " + message
+      render 'new'
+    end
+  end
+
   private
 
   def food_item_params
