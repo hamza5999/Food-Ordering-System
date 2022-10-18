@@ -30,7 +30,7 @@
 
             <td class="actionfield-width">
               <%= link_to "Show", food_item_path(fooditem), class: "badge badge-primary text-white" %>
-              <%= link_to "Edit", nil, class: "badge badge-warning text-white" %>
+              <%= link_to "Edit", edit_food_item_path(fooditem), class: "badge badge-warning text-white" %>
               <%= link_to "Discard", food_item_path(fooditem), method: :delete, data: {confirm: "Are you sure !! You want to discard this food item?"}, class: "badge badge-danger text-white" %>
             </td>
           </tr>
