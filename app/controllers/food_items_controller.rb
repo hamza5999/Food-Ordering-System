@@ -55,4 +55,10 @@ class FoodItemsController < ApplicationController
       format.js { render partial: 'food_items/options', locals: {ocount: @option_count, options: @options} }
     end
   end
+
+  private
+
+  def food_item_params
+    params.require(:food_item).permit(:name, :discount_id, :item_group_id)
+  end
 end
