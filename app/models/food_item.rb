@@ -11,4 +11,6 @@ class FoodItem < ApplicationRecord
   has_many :options, through: :food_item_options
 
   validates :name, presence: true
+
+  accepts_nested_attributes_for :food_item_options, allow_destroy: true, reject_if: :all_blank
 end
