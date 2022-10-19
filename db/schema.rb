@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_11_061803) do
+ActiveRecord::Schema.define(version: 2022_10_19_102108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -169,7 +169,7 @@ ActiveRecord::Schema.define(version: 2022_10_11_061803) do
     t.index ["restaurant_id"], name: "index_employees_on_restaurant_id"
   end
 
-  create_table "food_item_options", id: false, force: :cascade do |t|
+  create_table "food_item_options", force: :cascade do |t|
     t.bigint "food_item_id", null: false
     t.bigint "option_id", null: false
     t.decimal "price"
