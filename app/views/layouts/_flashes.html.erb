@@ -3,12 +3,20 @@
     <% if notice %>
       <div class="alert alert-success alert-dismissible fade show" role="alert">
         <%= notice %>
+
+        <a class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </a>
       </div>
     <% end %>
 
     <% if alert %>
       <div class="alert alert-danger alert-dismissible fade show" role="alert">
         <%= alert %>
+
+        <a class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </a>
       </div>
     <% end %>
   </div>
