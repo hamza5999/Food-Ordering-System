@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# `Deal` is a model that has many `DealItem`s through `DealItemDeal`s
 class Deal < ApplicationRecord
   include OrderableConcern
   include MenuableConcern

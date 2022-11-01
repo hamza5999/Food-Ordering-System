@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# It's a model that represents a group of food items
 class ItemGroup < ApplicationRecord
   include Discard::Model
 
@@ -14,7 +17,7 @@ class ItemGroup < ApplicationRecord
 
   validates :name, presence: true
 
-  def self.ransackable_scopes(auth_object = nil)
-    %i(available_categories unavailable_categories)
+  def self.ransackable_scopes(_auth_object = nil)
+    %i[available_categories unavailable_categories]
   end
 end

@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# It's a food item that belongs to an item group, has many options, and can be ordered
 class FoodItem < ApplicationRecord
   include Discard::Model
 

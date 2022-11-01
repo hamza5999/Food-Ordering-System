@@ -1,10 +1,11 @@
+# frozen_string_literal: true
+
+# It's a controller that handles the CRUD operations for the ItemGroup model
 class ItemGroupsController < ApplicationController
   def index
     @q = ItemGroup.ransack(params[:q])
     @categories = @q.result(distinct: true).kept
-    if params[:q].blank?
-      @categories = ItemGroup.available_categories.kept
-    end
+    @categories = ItemGroup.available_categories.kept if params[:q].blank?
   end
 
   def new
@@ -14,11 +15,11 @@ class ItemGroupsController < ApplicationController
   def create
     @item_group = ItemGroup.new(item_group_params)
     if @item_group.save
-      flash[:notice] = "Category was created successfully."
+      flash[:notice] = 'Category was created successfully.'
       redirect_to item_groups_path
     else
       message = @item_group.errors.full_messages.first.to_s
-		  flash[:alert] = "Error: " + message
+      flash[:alert] = "Error: #{message}"
       render :new
     end
   end
@@ -27,16 +28,14 @@ class ItemGroupsController < ApplicationController
     @item_group = ItemGroup.find(params[:id])
     if @item_group.discarded?
       @item_group.destroy
-      flash[:notice] = "Category was deleted successfully."
-      redirect_to item_groups_path
+      flash[:notice] = 'Category was deleted successfully.'
     elsif @item_group.discard
-      flash[:notice] = "Category was discarded successfully."
-      redirect_to item_groups_path
+      flash[:notice] = 'Category was discarded successfully.'
     else
       message = @item_group.errors.full_messages.first.to_s
-		  flash[:alert] = "Error: " + message
-      redirect_to item_groups_path
+      flash[:alert] = "Error: #{message}"
     end
+    redirect_to item_groups_path
   end
 
   def show
@@ -51,11 +50,11 @@ class ItemGroupsController < ApplicationController
   def update
     @item_group = ItemGroup.find(params[:id])
     if @item_group.update(item_group_params)
-      flash[:notice] = "Category was updated successfully."
+      flash[:notice] = 'Category was updated successfully.'
       redirect_to item_groups_path
     else
       message = @item_group.errors.full_messages.first.to_s
-		  flash[:alert] = "Error: " + message
+      flash[:alert] = "Error: #{message}"
       render :edit
     end
   end
@@ -71,7 +70,7 @@ class ItemGroupsController < ApplicationController
       redirect_to item_groups_path
     else
       message = @item_group.errors.full_messages.first.to_s
-      flash[:alert] = "Error: " + message
+      flash[:alert] = "Error: #{message}"
       render 'discarded'
     end
   end
@@ -79,6 +78,7 @@ class ItemGroupsController < ApplicationController
   private
 
   def item_group_params
-    params.require(:item_group).permit(:name, :availability, options_attributes: [:id, :name, :availability, :restaurant_id, :item_group_id, :_destroy])
+    params.require(:item_group).permit(:name, :availability,
+                                       options_attributes: %i[id name availability restaurant_id item_group_id _destroy])
   end
 end

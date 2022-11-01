@@ -1,10 +1,11 @@
+# frozen_string_literal: true
+
+# It's a controller that handles the CRUD operations for food items
 class FoodItemsController < ApplicationController
   def index
     @q = FoodItem.ransack(params[:q])
     @food_items = @q.result(distinct: true).kept
-    if params[:q].blank?
-      @food_items = FoodItem.kept
-    end
+    @food_items = FoodItem.kept if params[:q].blank?
   end
 
   def new
@@ -24,15 +25,13 @@ class FoodItemsController < ApplicationController
     if @food_item.discarded?
       @food_item.destroy
       flash[:notice] = 'Food item was deleted successfully.'
-      redirect_to food_items_path
     elsif @food_item.discard
       flash[:notice] = 'Food item was discarded successfully.'
-      redirect_to food_items_path
     else
       message = @food_item.errors.full_messages.first.to_s
-		  flash[:alert] = "Error: " + message
-      redirect_to food_items_path
+      flash[:alert] = "Error: #{message}"
     end
+    redirect_to food_items_path
   end
 
   def discarded
@@ -46,7 +45,7 @@ class FoodItemsController < ApplicationController
       redirect_to food_items_path
     else
       message = @food_item.errors.full_messages.first.to_s
-      flash[:alert] = "Error: " + message
+      flash[:alert] = "Error: #{message}"
       render 'discarded'
     end
   end
@@ -56,37 +55,38 @@ class FoodItemsController < ApplicationController
     @options = @category.options
     @option_count = @options.count
     respond_to do |format|
-      format.js { render partial: 'food_items/options', locals: {ocount: @option_count, options: @options} }
+      format.js { render partial: 'food_items/options', locals: { ocount: @option_count, options: @options } }
     end
   end
 
   def create
     @food_item = FoodItem.new(food_item_params)
     if @food_item.save
-      flash[:notice] = "Food item was created successfully."
+      flash[:notice] = 'Food item was created successfully.'
       redirect_to food_items_path
     else
       message = @food_item.errors.full_messages.first.to_s
-      flash[:alert] = "Error: " + message
+      flash[:alert] = "Error: #{message}"
       render 'new'
     end
   end
 
   def update
     @food_item = FoodItem.find(params[:id])
-      if @food_item.update(food_item_params)
-        flash[:notice] = "Food item was updated successfully."
-        redirect_to food_items_path
-      else
-        message = @food_item.errors.full_messages.first.to_s
-        flash[:alert] = "Error: " + message
-        render 'edit'
-      end
+    if @food_item.update(food_item_params)
+      flash[:notice] = 'Food item was updated successfully.'
+      redirect_to food_items_path
+    else
+      message = @food_item.errors.full_messages.first.to_s
+      flash[:alert] = "Error: #{message}"
+      render 'edit'
+    end
   end
 
   private
 
   def food_item_params
-    params.require(:food_item).permit(:name, :discount_id, :item_group_id, food_item_options_attributes: [:id, :food_item_id, :option_id, :price, :_destroy])
+    params.require(:food_item).permit(:name, :discount_id, :item_group_id,
+                                      food_item_options_attributes: %i[id food_item_id option_id price _destroy])
   end
 end
