@@ -47,6 +47,29 @@
             <% end %>
           </h5>
         </div>
+
+        <div class="d-flex flex-row">
+          <h5 class="font-weight-bold">Price:</h5>
+
+          <ul class="list-group list-group-flush mx-5">
+            <% if @food_item.options.empty? %>
+              <li class="list-group-item text-capitalize p-0 ml-3">
+                <h6>
+                  No options available right now.
+                </h6>
+              </li>
+            <% else %>
+              <% @food_item.food_item_options.each do |op| %>
+                <li class="list-group-item text-capitalize p-0 ml-3">
+                  <h6>
+                    <b><%= op.option_name + ': ' %></b>Rs.
+                    <%= op.price %>
+                  </h6>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
