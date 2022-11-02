@@ -10,7 +10,7 @@ module Employees
 
     # Permit the new params here.
     def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:accept_invitation, keys: %i[first_name last_name phone])
+      devise_parameter_sanitizer.permit(:accept_invitation, keys: %i[first_name last_name phone profile_pic])
     end
   end
 end
