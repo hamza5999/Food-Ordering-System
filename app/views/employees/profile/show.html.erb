@@ -1,0 +1,72 @@
+<div class="container mt-5">
+  <div class="d-flex">
+    <h1 class="mt-5 mx-4">Your Profile</h1>
+  </div>
+
+  <div class="row">
+    <div class="col-xl-3 col-lg-4">
+      <div class="card">
+        <div class="card-body">
+          <div class="tab-content profile-card text-center">
+            <div class="thumb-xl member-thumb m-b-10 center-block">
+              <%= image_tag current_employee.profile_pic, class: "rounded-circle", alt: "profile-pic" %>
+            </div><hr>
+
+            <div>
+              <h5 class="m-b-5"><%= current_employee.employee_fullname %></h5>
+              <p class="text-muted">@<%= current_employee.first_name + current_employee.last_name %></p>
+            </div>
+
+            <div class="file-upload">
+              <label for="upload" class="btn-sm btn-primary">Upload a new picture</label>
+              <input id="upload" class="file-upload__input" type="file" name="file-upload">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <div class="tab-content">
+            <h3 class="d-inline card-title">Profile details</h3>
+            <%= link_to "Edit", nil, class: "float-right badge badge-warning text-white" %><hr>
+
+            <ul class="list-reset p-t-10">
+              <li class="p-b-10 text-capitalize">
+                <span class="w-150 d-inline-block font-weight-bold">First name:</span>
+                <span><%= current_employee.first_name %></span>
+              </li>
+
+              <li class="p-b-10 text-capitalize">
+                <span class="w-150 d-inline-block font-weight-bold">Last name:</span>
+                <span><%= current_employee.last_name %></span>
+              </li>
+
+              <li class="p-b-10">
+                <span class="w-150 d-inline-block font-weight-bold">Phone:</span>
+                <span><%= current_employee.phone %></span>
+              </li>
+
+              <li class="p-b-10">
+                <span class="w-150 d-inline-block font-weight-bold">Email:</span>
+                <span><%= current_employee.email %></span>
+              </li>
+
+              <li class="p-b-10 text-capitalize">
+                <span class="w-150 d-inline-block font-weight-bold">Designation:</span>
+                <span><%= current_employee.designation %></span>
+              </li>
+
+              <li class="p-b-10 text-capitalize">
+                <span class="w-150 d-inline-block font-weight-bold">Manager:</span>
+                <span><%= current_employee.manager.employee_fullname %></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
