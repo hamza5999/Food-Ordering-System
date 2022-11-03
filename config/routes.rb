@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  namespace :employees do
+    get 'profile/show'
+  end
+
   resources :food_items do
     get :discarded, on: :collection
     get :restore, on: :member
