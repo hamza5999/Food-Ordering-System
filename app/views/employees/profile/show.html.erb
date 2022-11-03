@@ -9,12 +9,12 @@
         <div class="card-body">
           <div class="tab-content profile-card text-center">
             <div class="thumb-xl member-thumb m-b-10 center-block">
-              <%= image_tag current_employee.profile_pic, class: "rounded-circle", alt: "profile-pic" %>
+              <%= image_tag @employee.profile_pic, class: "rounded-circle", alt: "profile-pic" %>
             </div><hr>
 
             <div>
-              <h5 class="m-b-5"><%= current_employee.employee_fullname %></h5>
-              <p class="text-muted">@<%= current_employee.first_name + current_employee.last_name %></p>
+              <h5 class="m-b-5"><%= @employee.employee_fullname %></h5>
+              <p class="text-muted text-lowercase">@<%= @employee.first_name + @employee.last_name %></p>
             </div>
 
             <div class="file-upload">
@@ -36,32 +36,32 @@
             <ul class="list-reset p-t-10">
               <li class="p-b-10 text-capitalize">
                 <span class="w-150 d-inline-block font-weight-bold">First name:</span>
-                <span><%= current_employee.first_name %></span>
+                <span><%= @employee.first_name %></span>
               </li>
 
               <li class="p-b-10 text-capitalize">
                 <span class="w-150 d-inline-block font-weight-bold">Last name:</span>
-                <span><%= current_employee.last_name %></span>
+                <span><%= @employee.last_name %></span>
               </li>
 
               <li class="p-b-10">
                 <span class="w-150 d-inline-block font-weight-bold">Phone:</span>
-                <span><%= current_employee.phone %></span>
+                <span><%= @employee.phone %></span>
               </li>
 
               <li class="p-b-10">
                 <span class="w-150 d-inline-block font-weight-bold">Email:</span>
-                <span><%= current_employee.email %></span>
+                <span><%= @employee.email %></span>
               </li>
 
               <li class="p-b-10 text-capitalize">
                 <span class="w-150 d-inline-block font-weight-bold">Designation:</span>
-                <span><%= current_employee.designation %></span>
+                <span><%= @employee.designation %></span>
               </li>
 
               <li class="p-b-10 text-capitalize">
                 <span class="w-150 d-inline-block font-weight-bold">Manager:</span>
-                <span><%= current_employee.manager.employee_fullname %></span>
+                <span><%= @employee.manager.employee_fullname %></span>
               </li>
             </ul>
           </div>
