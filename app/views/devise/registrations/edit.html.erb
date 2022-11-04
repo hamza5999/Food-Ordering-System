@@ -1,37 +1,64 @@
-<h1><%= t('.title', resource: resource_name.to_s.humanize) %></h1>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<div class="container mt-5">
   <%= bootstrap_devise_error_messages! %>
 
-  <div class="form-group">
-    <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control' %>
+  <div class="ml-3">
+    <h1 class="mt-5"><%= t('.title', resource: resource_name.to_s.humanize) %></h1>
   </div>
 
-  <div class="form-group">
-    <%= f.label :password %>
-    <%= f.password_field :password, autocomplete: 'new-password', class: 'form-control' %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <div class="row mx-0">
+      <div class="form-group col-6">
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name, autocomplete: 'on', class: 'form-control input-width text-capitalize' %>
+      </div>
 
-    <small class="form-text text-muted"><%= t('.leave_blank_if_you_don_t_want_to_change_it') %></small>
-  </div>
+      <div class="form-group col-6">
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name, autocomplete: 'on', class: 'form-control input-width text-capitalize' %>
+      </div>
 
-  <div class="form-group">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, autocomplete: 'new-password', class: 'form-control'  %>
-  </div>
+      <div class="form-group col-12">
+        <%= f.label :phone %>
+        <%= f.text_field :phone, autocomplete: 'on', class: 'form-control input-width' %>
+      </div>
 
-  <div class="form-group">
-    <%= f.label :current_password %>
-    <%= f.password_field :current_password, autocomplete: 'current-password', class: 'form-control' %>
+      <div class="form-group col-6">
+        <%= f.label :designation %>
+        <%= f.text_field :designation, class: 'form-control input-width text-capitalize', disabled: true %>
+      </div>
 
-    <small class="form-text text-muted"><%= t('.we_need_your_current_password_to_confirm_your_changes') %></small>
-  </div>
+      <div class="form-group col-6">
+        <%= f.label :manager_id %>
+        <%= f.text_field :manager_id, class: 'form-control input-width text-capitalize', value: resource.manager.employee_fullname, disabled: true %>
+      </div>
 
-  <div class="form-group">
-    <%= f.submit t('.update'), class: 'btn btn-primary' %>
-  </div>
-<% end %>
+      <div class="form-group col-12">
+        <%= f.label :email %>
+        <%= f.email_field :email, class: 'form-control input-width', disabled: true %>
+      </div>
 
-<p><%= t('.unhappy') %>? <%= link_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete %>.</p>
+      <div class="form-group col-12">
+        <%= f.label :password %>
+        <%= f.password_field :password, autocomplete: 'new-password', class: 'form-control input-width' %>
 
-<%= link_to t('.back'), :back %>
+        <small class="form-text text-muted"><%= t('.leave_blank_if_you_don_t_want_to_change_it') %></small>
+      </div>
+
+      <div class="form-group col-12">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, autocomplete: 'new-password', class: 'form-control input-width'  %>
+      </div>
+
+      <div class="form-group col-12">
+        <%= f.label :current_password %>
+        <%= f.password_field :current_password, autocomplete: 'current-password', class: 'form-control input-width' %>
+
+        <small class="form-text text-muted"><%= t('.we_need_your_current_password_to_confirm_your_changes') %></small>
+      </div>
+
+      <div class="form-group">
+        <%= f.submit t('.update'), class: 'btn btn-primary ml-3' %>
+      </div>
+    </div>
+  <% end %>
+</div>
