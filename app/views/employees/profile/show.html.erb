@@ -9,7 +9,11 @@
         <div class="card-body">
           <div class="tab-content profile-card text-center">
             <div class="thumb-xl member-thumb m-b-10 center-block">
-              <%= image_tag @employee.profile_pic, class: "rounded-circle", alt: "profile-pic" %>
+              <% if @employee.profile_pic.persisted? %>
+                <%= image_tag @employee.profile_pic, class: "rounded-circle", alt: "profile-pic" %>
+              <% else %>
+                <%= image_tag 'img/avatars/no-profile', class: "rounded-circle", alt: "profile-avatar" %>
+              <% end %>
             </div><hr>
 
             <div>
