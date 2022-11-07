@@ -6,13 +6,23 @@
 		<% if current_employee %>
 			<li class="nav-item dropdown">
 				<a class="nav-link nav-pill user-avatar" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-					<%= image_tag current_employee.profile_pic, class: "w-35 rounded-circle" %>
+					<% if current_employee.profile_pic.persisted? %>
+						<%= image_tag current_employee.profile_pic, class: "w-35 rounded-circle" %>
+					<% else %>
+						<%= image_tag 'img/avatars/no-profile', class: "w-35 rounded-circle" %>
+					<% end %>
 				</a>
 
 				<div class="dropdown-menu dropdown-menu-right dropdown-menu-accout">
 					<div class="dropdown-header pb-3">
 						<div class="media d-user">
-							<%= image_tag 'img/avatars/1', class: "w-35 rounded-circle mr-2" %>
+							<div class="mr-2">
+								<% if current_employee.profile_pic.persisted? %>
+									<%= image_tag current_employee.profile_pic, class: "w-35 rounded-circle" %>
+								<% else %>
+									<%= image_tag 'img/avatars/no-profile', class: "w-35 rounded-circle" %>
+								<% end %>
+							</div>
 
 							<div class="media-body">
 								<h5 class="mt-0 mb-0"><%= current_employee.employee_fullname %></h5>
