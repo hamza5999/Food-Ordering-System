@@ -9,17 +9,17 @@
     <div class="row mx-0">
       <div class="form-group col-6">
         <%= f.label :first_name %>
-        <%= f.text_field :first_name, autocomplete: 'on', class: 'form-control input-width text-capitalize' %>
+        <%= f.text_field :first_name, autocomplete: 'first_name', class: 'form-control input-width text-capitalize' %>
       </div>
 
       <div class="form-group col-6">
         <%= f.label :last_name %>
-        <%= f.text_field :last_name, autocomplete: 'on', class: 'form-control input-width text-capitalize' %>
+        <%= f.text_field :last_name, autocomplete: 'last_name', class: 'form-control input-width text-capitalize' %>
       </div>
 
       <div class="form-group col-12">
         <%= f.label :phone %>
-        <%= f.text_field :phone, autocomplete: 'on', class: 'form-control input-width' %>
+        <%= f.telephone_field :phone, autocomplete: 'phone', class: 'form-control input-width' %>
       </div>
 
       <div class="form-group col-6">
