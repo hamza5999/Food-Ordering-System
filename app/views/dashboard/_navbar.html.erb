@@ -7,7 +7,7 @@
 			<li class="nav-item dropdown">
 				<a class="nav-link nav-pill user-avatar" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
 					<% if current_employee.profile_pic.persisted? %>
-						<%= image_tag current_employee.profile_pic, class: "w-35 rounded-circle" %>
+						<%= image_tag current_employee.profile_pic, class: "w-35 h-35 rounded-circle" %>
 					<% else %>
 						<%= image_tag 'img/avatars/no-profile', class: "w-35 rounded-circle" %>
 					<% end %>
@@ -18,7 +18,7 @@
 						<div class="media d-user">
 							<div class="mr-2">
 								<% if current_employee.profile_pic.persisted? %>
-									<%= image_tag current_employee.profile_pic, class: "w-35 rounded-circle" %>
+									<%= image_tag current_employee.profile_pic, class: "w-35 h-35 rounded-circle" %>
 								<% else %>
 									<%= image_tag 'img/avatars/no-profile', class: "w-35 rounded-circle" %>
 								<% end %>
