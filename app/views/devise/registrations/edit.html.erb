@@ -1,64 +1,83 @@
-<div class="container mt-2">
+<div class="container mt-3">
   <%= bootstrap_devise_error_messages! %>
 
-  <div class="ml-3">
-    <h1 class="mt-4"><%= t('.title', resource: resource_name.to_s.humanize) %></h1>
-  </div>
-
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <div class="row mx-0">
-      <div class="form-group col-6">
-        <%= f.label :first_name %>
-        <%= f.text_field :first_name, autocomplete: 'first_name', class: 'form-control input-width text-capitalize' %>
+  <div class="card">
+    <div class="card-body">
+      <div class="ml-3">
+        <h1 class="mt-4"><%= t('.title', resource: resource_name.to_s.humanize) %></h1>
       </div>
 
-      <div class="form-group col-6">
-        <%= f.label :last_name %>
-        <%= f.text_field :last_name, autocomplete: 'last_name', class: 'form-control input-width text-capitalize' %>
-      </div>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <div class="row mx-0">
+          <div class="card col-12 mt-4">
+            <div class="form-group pt-3">
+              <% if current_employee.profile_pic.persisted? %>
+                <%= image_tag current_employee.profile_pic, class: "w-75 h-75 rounded-circle", alt: "profile pic" %>
+              <% else %>
+                <%= image_tag 'img/avatars/no-profile', class: "w-100 rounded-circle", alt: "profile avatar" %>
+              <% end %>
 
-      <div class="form-group col-12">
-        <%= f.label :phone %>
-        <%= f.telephone_field :phone, autocomplete: 'phone', class: 'form-control input-width' %>
-      </div>
+              <div class="file-upload">
+                <%= f.label :profile_pic, "Upload a new profile picture", class: "btn btn-primary m-b-0 m-l-5 m-r-5" %>
+                <%= f.file_field :profile_pic, class: "file-upload__input" %>
+              </div>
+            </div>
+          </div>
 
-      <div class="form-group col-6">
-        <%= f.label :designation %>
-        <%= f.text_field :designation, class: 'form-control input-width text-capitalize', disabled: true %>
-      </div>
+          <div class="form-group col-6">
+            <%= f.label :first_name %>
+            <%= f.text_field :first_name, autocomplete: 'first_name', class: 'form-control input-width text-capitalize' %>
+          </div>
 
-      <div class="form-group col-6">
-        <%= f.label :manager_id %>
-        <%= f.text_field :manager_id, class: 'form-control input-width text-capitalize', value: resource.manager.employee_fullname, disabled: true %>
-      </div>
+          <div class="form-group col-6">
+            <%= f.label :last_name %>
+            <%= f.text_field :last_name, autocomplete: 'last_name', class: 'form-control input-width text-capitalize' %>
+          </div>
 
-      <div class="form-group col-12">
-        <%= f.label :email %>
-        <%= f.email_field :email, class: 'form-control input-width', disabled: true %>
-      </div>
+          <div class="form-group col-12">
+            <%= f.label :phone %>
+            <%= f.telephone_field :phone, autocomplete: 'phone', class: 'form-control input-width' %>
+          </div>
 
-      <div class="form-group col-12">
-        <%= f.label :password %>
-        <%= f.password_field :password, autocomplete: 'new-password', class: 'form-control input-width' %>
+          <div class="form-group col-6">
+            <%= f.label :designation %>
+            <%= f.text_field :designation, class: 'form-control input-width text-capitalize', disabled: true %>
+          </div>
 
-        <small class="form-text text-muted"><%= t('.leave_blank_if_you_don_t_want_to_change_it') %></small>
-      </div>
+          <div class="form-group col-6">
+            <%= f.label :manager_id %>
+            <%= f.text_field :manager_id, class: 'form-control input-width text-capitalize', value: resource.manager.employee_fullname, disabled: true %>
+          </div>
 
-      <div class="form-group col-12">
-        <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation, autocomplete: 'new-password', class: 'form-control input-width'  %>
-      </div>
+          <div class="form-group col-12">
+            <%= f.label :email %>
+            <%= f.email_field :email, class: 'form-control input-width', disabled: true %>
+          </div>
 
-      <div class="form-group col-12">
-        <%= f.label :current_password %>
-        <%= f.password_field :current_password, autocomplete: 'current-password', class: 'form-control input-width' %>
+          <div class="form-group col-12">
+            <%= f.label :password %>
+            <%= f.password_field :password, autocomplete: 'new-password', class: 'form-control input-width' %>
 
-        <small class="form-text text-muted"><%= t('.we_need_your_current_password_to_confirm_your_changes') %></small>
-      </div>
+            <small class="form-text text-muted"><%= t('.leave_blank_if_you_don_t_want_to_change_it') %></small>
+          </div>
 
-      <div class="form-group">
-        <%= f.submit t('.update'), class: 'btn btn-primary ml-3' %>
-      </div>
+          <div class="form-group col-12">
+            <%= f.label :password_confirmation %>
+            <%= f.password_field :password_confirmation, autocomplete: 'new-password', class: 'form-control input-width'  %>
+          </div>
+
+          <div class="form-group col-12">
+            <%= f.label :current_password %>
+            <%= f.password_field :current_password, autocomplete: 'current-password', class: 'form-control input-width' %>
+
+            <small class="form-text text-muted"><%= t('.we_need_your_current_password_to_confirm_your_changes') %></small>
+          </div>
+
+          <div class="form-group">
+            <%= f.submit t('.update'), class: 'btn btn-primary ml-3' %>
+          </div>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
 </div>
