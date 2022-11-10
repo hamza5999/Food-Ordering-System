@@ -12,7 +12,7 @@
               <% if @employee.profile_pic.persisted? %>
                 <%= image_tag @employee.profile_pic, class: "w-160 h-150 rounded-circle mb-1", alt: "profile pic" %>
               <% else %>
-                <%= image_tag 'img/avatars/no-profile', class: "rounded-circle", alt: "profile-avatar" %>
+                <%= image_tag 'img/avatars/no-profile', class: "rounded-circle", alt: "profile avatar" %>
               <% end %>
             </div><hr>
 
