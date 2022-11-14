@@ -36,4 +36,12 @@ class Employee < ApplicationRecord
   def employee_fullname
     "#{first_name} #{last_name}"
   end
+
+  after_update :employee_profile_update
+
+  private
+
+  def employee_profile_update
+    EmployeeMailer.edit_employee_email(self).deliver
+  end
 end
