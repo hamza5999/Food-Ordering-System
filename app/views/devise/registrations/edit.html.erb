@@ -19,7 +19,7 @@
 
               <div class="file-upload">
                 <%= f.label :profile_pic, "Upload a new profile picture", class: "btn btn-primary m-b-0 m-l-5 m-r-5" %>
-                <%= f.file_field :profile_pic, class: "file-upload__input" %>
+                <%= f.file_field :profile_pic, class: "file-upload__input", onchange: "previewImage(event)" %>
               </div>
             </div>
           </div>
