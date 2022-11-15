@@ -12,9 +12,9 @@
           <div class="card col-12 mt-4">
             <div class="form-group pt-3">
               <% if current_employee.profile_pic.persisted? %>
-                <%= image_tag current_employee.profile_pic, class: "w-75 h-75 rounded-circle", alt: "profile pic" %>
+                <%= image_tag current_employee.profile_pic, class: "w-75 h-75 rounded-circle", alt: "profile pic", id: "image-field" %>
               <% else %>
-                <%= image_tag 'img/avatars/no-profile', class: "w-100 rounded-circle", alt: "profile avatar" %>
+                <%= image_tag 'img/avatars/no-profile', class: "w-100 rounded-circle", alt: "profile avatar", id: "image-field" %>
               <% end %>
 
               <div class="file-upload">
