@@ -1,8 +1,12 @@
-require "test_helper"
+# frozen_string_literal: true
 
-class Employees::ProfileControllerTest < ActionDispatch::IntegrationTest
-  test "should get show" do
-    get employees_profile_show_url
-    assert_response :success
+require 'test_helper'
+
+module Employees
+  class ProfileControllerTest < ActionDispatch::IntegrationTest
+    test 'should get show' do
+      get employees_profile_show_url
+      assert_response :success
+    end
   end
 end
