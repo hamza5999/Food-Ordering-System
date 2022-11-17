@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_221_117_060_317) do
+ActiveRecord::Schema.define(version: 20_221_117_133_430) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -252,6 +252,8 @@ ActiveRecord::Schema.define(version: 20_221_117_060_317) do
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
     t.bigint 'restaurant_id', null: false
+    t.datetime 'discarded_at'
+    t.index ['discarded_at'], name: 'index_menus_on_discarded_at'
     t.index ['restaurant_id'], name: 'index_menus_on_restaurant_id'
   end
 
