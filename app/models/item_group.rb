@@ -4,7 +4,7 @@
 class ItemGroup < ApplicationRecord
   include Discard::Model
 
-  include MenuableConcern
+  include MenuItemableConcern
   include DealableConcern
 
   scope :available_categories, -> { where(availability: true) }

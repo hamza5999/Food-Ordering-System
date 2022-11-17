@@ -1,12 +1,9 @@
 # frozen_string_literal: true
 
-# A MenuItem belongs to a Menuable, which is a polymorphic association, and belongs to a Restaurant.
-# It has many MenuItemMenus, which is a join table, and has many Menus through MenuItemMenus. It has
-# many AddonMenuItems, which is a join table, and has many Addons through AddonMenuItems
+# A MenuItem belongs to a MenuItemable, which is a polymorphic association. It belongs to a Restaurant and Menu
 class MenuItem < ApplicationRecord
-  belongs_to :menuable, polymorphic: true
+  belongs_to :menu_itemable, polymorphic: true
   belongs_to :restaurant
-
   belongs_to :menu
 
   has_many :addon_menu_items
