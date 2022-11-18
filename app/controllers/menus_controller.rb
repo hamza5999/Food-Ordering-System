@@ -26,4 +26,16 @@ class MenusController < ApplicationController
   def discarded
     @discarded_menus = Menu.discarded
   end
+
+  def restore
+    @menu = Menu.find(params[:id])
+    if @menu.undiscard
+      flash[:notice] = 'Menu was restored successfully.'
+      redirect_to menus_path
+    else
+      message = @menu.errors.full_messages.first.to_s
+      flash[:alert] = "Error: #{message}"
+      render 'discarded'
+    end
+  end
 end
