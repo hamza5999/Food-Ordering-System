@@ -22,7 +22,10 @@ Rails.application.routes.draw do
     get :restore, on: :member
   end
 
-  resources :menus
+  resources :menus do
+    get :discarded, on: :collection
+    get :restore, on: :member
+  end
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
