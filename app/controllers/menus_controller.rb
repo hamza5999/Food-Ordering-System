@@ -4,7 +4,9 @@
 # that sets the @menus instance variable to the result of calling Menu.all.
 class MenusController < ApplicationController
   def index
-    @menus = Menu.all
+    @q = Menu.ransack(params[:q])
+    @menus = @q.result(distinct: true).kept
+    @menus = Menu.kept if params[:q].blank?
   end
 
   def destroy
