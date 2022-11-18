@@ -22,4 +22,8 @@ class MenusController < ApplicationController
     end
     redirect_to menus_path
   end
+
+  def discarded
+    @discarded_menus = Menu.discarded
+  end
 end
