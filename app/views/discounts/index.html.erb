@@ -2,56 +2,62 @@
   <div class="d-flex">
     <h1 class="mt-5 mx-4">Available Discounts</h1>
 
-    <div class="ml-auto mt-3 mr-4">
-      <%= search_form_for @q do |f| %>
-        <%= f.hidden_field :active_discounts, id: "liveDiscounts" %>
-        <%= f.hidden_field :expired_discounts, id: "closedDiscounts" %>
+    <% if @discounts.present? %>
+      <div class="ml-auto mt-3 mr-4">
+        <%= search_form_for @q do |f| %>
+          <%= f.hidden_field :active_discounts, id: "liveDiscounts" %>
+          <%= f.hidden_field :expired_discounts, id: "closedDiscounts" %>
 
-        <%= f.button "All", id: 'all_discounts', type: "submit", class: "btn btn-success text-white" %>
-        <%= f.button "Active", id: 'available_discounts', type: "submit", class: "btn btn-info text-white" %>
-        <%= f.button "Expired", id: 'unavailable_discounts', type: "submit", class: "btn btn-dark text-white" %>
-      <% end %>
-    </div>
+          <%= f.button "All", id: 'all_discounts', type: "submit", class: "btn btn-success text-white" %>
+          <%= f.button "Active", id: 'available_discounts', type: "submit", class: "btn btn-info text-white" %>
+          <%= f.button "Expired", id: 'unavailable_discounts', type: "submit", class: "btn btn-dark text-white" %>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 
   <div class="card-body">
-    <table class="table table-hover table-bordered">
-      <thead class="thead-light">
-        <tr>
-          <th scope="col">Sr #</th>
-          <th scope="col">Name</th>
-          <th scope="col">Type</th>
-          <th scope="col">Discount</th>
-          <th scope="col">Status</th>
-          <th scope="col">Actions</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @discounts.each_with_index do |discount, index| %>
+    <% if @discounts.empty? %>
+      <h3 class="border ml-1">No discount available</h3>
+    <% else %>
+      <table class="table table-hover table-bordered">
+        <thead class="thead-light">
           <tr>
-            <td scope="row"><%= index + 1 %></td>
-            <td class="text-capitalize"><%= discount.name %></td>
-            <td class="text-capitalize"><%= discount.kind %></td>
-            <td class="text-capitalize"><%= discount.value %></td>
-
-            <td class="text-capitalize">
-              <% if discount.status %>
-                active
-              <% else %>
-                expired
-              <% end %>
-            </td>
-
-            <td class="actionfield-width">
-              <%= link_to "Show", discount_path(discount), class: "badge badge-primary text-white" %>
-              <%= link_to "Edit", edit_discount_path(discount), class: "badge badge-warning text-white" %>
-              <%= link_to "Discard", discount_path(discount), method: :delete, data: {confirm: "Are you sure !! You want to discard this discount?"}, class: "badge badge-danger text-white" %>
-            </td>
+            <th scope="col">Sr #</th>
+            <th scope="col">Name</th>
+            <th scope="col">Type</th>
+            <th scope="col">Discount</th>
+            <th scope="col">Status</th>
+            <th scope="col">Actions</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+
+        <tbody>
+          <% @discounts.each_with_index do |discount, index| %>
+            <tr>
+              <td scope="row"><%= index + 1 %></td>
+              <td class="text-capitalize"><%= discount.name %></td>
+              <td class="text-capitalize"><%= discount.kind %></td>
+              <td class="text-capitalize"><%= discount.value %></td>
+
+              <td class="text-capitalize">
+                <% if discount.status %>
+                  active
+                <% else %>
+                  expired
+                <% end %>
+              </td>
+
+              <td class="actionfield-width">
+                <%= link_to "Show", discount_path(discount), class: "badge badge-primary text-white" %>
+                <%= link_to "Edit", edit_discount_path(discount), class: "badge badge-warning text-white" %>
+                <%= link_to "Discard", discount_path(discount), method: :delete, data: {confirm: "Are you sure !! You want to discard this discount?"}, class: "badge badge-danger text-white" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
   </div>
 </div>
 
