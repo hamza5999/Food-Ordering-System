@@ -34,7 +34,7 @@
               <td class="actionfield-width">
                 <%= link_to "Show", nil, class: "badge badge-primary text-white" %>
                 <%= link_to "Restore", restore_menu_path(dm), method: :get, class: "badge badge-success text-white" %>
-                <%= link_to "Delete", nil, method: :delete, data: {confirm: "Are you sure !! You want to permanently delete this menu?"}, class: "badge badge-danger text-white" %>
+                <%= link_to "Delete", menu_path(dm), method: :delete, data: {confirm: "Are you sure !! You want to permanently delete this menu?"}, class: "badge badge-danger text-white" %>
               </td>
             </tr>
           <% end %>
