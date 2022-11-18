@@ -9,7 +9,6 @@
         <tr>
           <th scope="col">Sr #</th>
           <th scope="col">Title</th>
-          <th scope="col">Restaurant</th>
           <th scope="col">Availability</th>
           <th scope="col">Actions</th>
         </tr>
@@ -20,7 +19,6 @@
           <tr>
             <td scope="row"><%= index + 1 %></td>
             <td class="text-capitalize"><%= menu.title %></td>
-            <td class="text-capitalize"><%= menu.restaurant.name %></td>
 
             <% if menu.availability %>
               <td class="text-capitalize">Available</td>
