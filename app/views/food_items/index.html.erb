@@ -1,42 +1,46 @@
 <div class="container mt-5">
   <div class="d-flex">
-    <h1 class="mt-5 mx-4">Available Food Items</h1>
+    <h1 class="mt-4 mx-4">Available Food Items</h1>
   </div>
 
   <div class="card-body">
-    <table class="table table-hover table-bordered">
-      <thead class="thead-light">
-        <tr>
-          <th scope="col">Sr #</th>
-          <th scope="col">Name</th>
-          <th scope="col">Category</th>
-          <th scope="col">Discount</th>
-          <th scope="col">Actions</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @food_items.each_with_index do |fooditem, index| %>
+    <% if @food_items.empty? %>
+      <h3 class="border ml-1">No food item available</h3>
+    <% else %>
+      <table class="table table-hover table-bordered">
+        <thead class="thead-light">
           <tr>
-            <td scope="row"><%= index + 1 %></td>
-            <td class="text-capitalize"><%= fooditem.name %></td>
-            <td class="text-capitalize"><%= fooditem.item_group.name %></td>
-
-            <% if fooditem.discount %>
-              <td class="text-capitalize"><%= fooditem.discount.name %></td>
-            <% else %>
-              <td class="text-capitalize">None</td>
-            <% end %>
-
-            <td class="actionfield-width">
-              <%= link_to "Show", food_item_path(fooditem), class: "badge badge-primary text-white" %>
-              <%= link_to "Edit", edit_food_item_path(fooditem), class: "badge badge-warning text-white" %>
-              <%= link_to "Discard", food_item_path(fooditem), method: :delete, data: {confirm: "Are you sure !! You want to discard this food item?"}, class: "badge badge-danger text-white" %>
-            </td>
+            <th scope="col">Sr #</th>
+            <th scope="col">Name</th>
+            <th scope="col">Category</th>
+            <th scope="col">Discount</th>
+            <th scope="col">Actions</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+
+        <tbody>
+          <% @food_items.each_with_index do |fooditem, index| %>
+            <tr>
+              <td scope="row"><%= index + 1 %></td>
+              <td class="text-capitalize"><%= fooditem.name %></td>
+              <td class="text-capitalize"><%= fooditem.item_group.name %></td>
+
+              <% if fooditem.discount %>
+                <td class="text-capitalize"><%= fooditem.discount.name %></td>
+              <% else %>
+                <td class="text-capitalize">None</td>
+              <% end %>
+
+              <td class="actionfield-width">
+                <%= link_to "Show", food_item_path(fooditem), class: "badge badge-primary text-white" %>
+                <%= link_to "Edit", edit_food_item_path(fooditem), class: "badge badge-warning text-white" %>
+                <%= link_to "Discard", food_item_path(fooditem), method: :delete, data: {confirm: "Are you sure !! You want to discard this food item?"}, class: "badge badge-danger text-white" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
   </div>
 </div>
 
