@@ -9,6 +9,10 @@ class MenusController < ApplicationController
     @menus = Menu.kept if params[:q].blank?
   end
 
+  def new
+    @menu = Menu.new
+  end
+
   def destroy
     @menu = Menu.find(params[:id])
     if @menu.discarded?
