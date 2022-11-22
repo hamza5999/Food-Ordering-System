@@ -42,4 +42,10 @@ class MenusController < ApplicationController
       render 'discarded'
     end
   end
+
+  private
+
+  def menu_params
+    params.require(:menu).permit(:title, :availability, :restaurant_id)
+  end
 end
