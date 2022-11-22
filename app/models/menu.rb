@@ -6,6 +6,9 @@ class Menu < ApplicationRecord
   include Discard::Model
 
   belongs_to :restaurant
-  has_many :menu_timings
+
   has_many :menu_items
+  has_many :menu_timings, dependent: :destroy, inverse_of: :menu
+
+  accepts_nested_attributes_for :menu_timings, reject_if: :all_blank, allow_destroy: true
 end
