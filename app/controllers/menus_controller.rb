@@ -13,6 +13,18 @@ class MenusController < ApplicationController
     @menu = Menu.new
   end
 
+  def create
+    @menu = Menu.new(menu_params)
+    if @menu.save
+      flash[:notice] = 'Menu was created successfully.'
+      redirect_to menus_path
+    else
+      message = @menu.errors.full_messages.first.to_s
+      flash[:alert] = "Error: #{message}"
+      render 'new'
+    end
+  end
+
   def destroy
     @menu = Menu.find(params[:id])
     if @menu.discarded?
