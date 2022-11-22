@@ -46,6 +46,7 @@ class MenusController < ApplicationController
   private
 
   def menu_params
-    params.require(:menu).permit(:title, :availability, :restaurant_id)
+    params.require(:menu).permit(:title, :availability, :restaurant_id,
+                                 menu_timings_attributes: %i[id start_time end_time days menu_id _destroy])
   end
 end
