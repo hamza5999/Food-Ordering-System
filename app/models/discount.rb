@@ -11,7 +11,7 @@ class Discount < ApplicationRecord
 
   belongs_to :restaurant
   has_many :food_items, dependent: :destroy
-  has_many :discount_timelines, dependent: :destroy
+  has_many :discount_timelines, dependent: :destroy, inverse_of: :discount
 
   accepts_nested_attributes_for :discount_timelines, reject_if: :all_blank, allow_destroy: true
 
