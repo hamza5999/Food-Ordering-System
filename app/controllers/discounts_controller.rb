@@ -67,7 +67,7 @@ class DiscountsController < ApplicationController
     @discount = Discount.find(params[:id])
     if @discount.undiscard
       flash[:notice] = 'Discount was restored successfully.'
-      redirect_to discounts_path
+      redirect_to discarded_discounts_path
     else
       message = @discount.errors.full_messages.first.to_s
       flash[:alert] = "Error: #{message}"
