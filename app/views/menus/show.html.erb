@@ -1,0 +1,69 @@
+<div class="container mt-5">
+  <h1 class="mt-4 mx-3">View Menu</h1>
+
+  <div class="card mt-4 col-sm-9">
+    <div class="card-header d-flex text-capitalize">
+      <h3>
+        <%= @menu.title %>
+      </h3>
+
+      <div class="ml-auto">
+        <% if @menu.discarded? %>
+          <%= link_to "Restore", restore_menu_path(@menu), method: :get, class: "badge badge-success text-white" %>
+          <%= link_to "Delete", menu_path(@menu), method: :delete, data: {confirm: "Are you sure !! You want to permanently delete this menu?"}, class: "badge badge-danger text-white" %>
+        <% else %>
+          <%= link_to "Edit", edit_menu_path(@menu), class: "badge badge-warning text-white" %>
+          <%= link_to "Discard", menu_path(@menu), method: :delete, data: {confirm: "Are you sure !! You want to discard this menu?"}, class: "badge badge-danger text-white" %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <div class="d-flex flex-column">
+        <div class="d-flex flex-row">
+          <h5 class="font-weight-bold">Title:</h5>
+
+          <h5 class="ml-2">
+            <%= @menu.title %>
+          </h5>
+        </div>
+
+        <div class="d-flex flex-row">
+          <h5 class="font-weight-bold">Availability:</h5>
+
+          <h5 class="ml-2 text-capitalize">
+            <% if @menu.availability %>
+              available
+            <% else %>
+              unavailable
+            <% end %>
+          </h5>
+        </div>
+
+        <div class="d-flex flex-row mt-3">
+          <h5 class="font-weight-bold">Timings:</h5>
+
+          <ul class="list-group list-group-flush mx-5">
+            <% if @menu.menu_timings.empty? %>
+              <li class="list-group-item text-capitalize p-0 ml-3">
+                <h6>
+                  No timing available
+                </h6>
+              </li>
+            <% else %>
+              <% @menu.menu_timings.each do |mt| %>
+                <li class="list-group-item p-0 ml-3">
+                  <h6>
+                    <b class="text-capitalize"><%= mt.days %>:-</b><br>
+                    <b>from: </b><%= get_time_only(mt.start_time) %>
+                    <b>to: </b><%= get_time_only(mt.end_time) %>
+                  </h6>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
