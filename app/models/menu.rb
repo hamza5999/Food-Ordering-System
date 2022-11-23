@@ -11,4 +11,6 @@ class Menu < ApplicationRecord
   has_many :menu_timings, dependent: :destroy, inverse_of: :menu
 
   accepts_nested_attributes_for :menu_timings, reject_if: :all_blank, allow_destroy: true
+
+  validates :title, presence: true
 end
