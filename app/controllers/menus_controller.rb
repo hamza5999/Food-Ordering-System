@@ -25,6 +25,10 @@ class MenusController < ApplicationController
     end
   end
 
+  def edit
+    @menu = Menu.find(params[:id])
+  end
+
   def destroy
     @menu = Menu.find(params[:id])
     if @menu.discarded?
