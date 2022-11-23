@@ -67,7 +67,7 @@ class MenusController < ApplicationController
     @menu = Menu.find(params[:id])
     if @menu.undiscard
       flash[:notice] = 'Menu was restored successfully.'
-      redirect_to menus_path
+      redirect_to discarded_menus_path
     else
       message = @menu.errors.full_messages.first.to_s
       flash[:alert] = "Error: #{message}"
