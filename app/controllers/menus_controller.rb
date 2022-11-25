@@ -31,6 +31,18 @@ class MenusController < ApplicationController
 
   def edit
     @menu = Menu.find(params[:id])
+    @menu_items = []
+    Deal.all.map do |deal|
+      unless @menu.menu_items.exists?(menu_itemable_id: deal.id)
+        @menu_items << { menu_itemable_id: deal.id, menu_itemable_type: 'Deal' }
+      end
+    end
+    ItemGroup.all.map do |category|
+      unless @menu.menu_items.exists?(menu_itemable_id: category.id)
+        @menu_items << { menu_itemable_id: category.id, menu_itemable_type: 'ItemGroup' }
+      end
+    end
+    @menu.menu_items.build(@menu_items.map { |menu_item| menu_item })
   end
 
   def update
