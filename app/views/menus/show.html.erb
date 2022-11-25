@@ -41,6 +41,28 @@
         </div>
 
         <div class="d-flex flex-row mt-3">
+          <h5 class="font-weight-bold">Menu Items:</h5>
+
+          <ul class="list-group list-group-flush mx-5">
+            <% if @menu.menu_items.empty? %>
+              <li class="list-group-item p-0 ml-3">
+                <h6>
+                  No menu item available
+                </h6>
+              </li>
+            <% else %>
+              <% @menu.menu_items.each do |mt| %>
+                <li class="list-group-item p-0 ml-3">
+                  <h6 class="text-capitalize">
+                    <%= mt.menu_itemable.name %>
+                  </h6>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+
+        <div class="d-flex flex-row mt-3">
           <h5 class="font-weight-bold">Timings:</h5>
 
           <ul class="list-group list-group-flush mx-5">
