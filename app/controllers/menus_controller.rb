@@ -11,6 +11,10 @@ class MenusController < ApplicationController
 
   def new
     @menu = Menu.new
+    @menu_items = []
+    Deal.all.map { |deal| @menu_items << { menu_itemable_id: deal.id, menu_itemable_type: 'Deal' } }
+    ItemGroup.all.map { |category| @menu_items << { menu_itemable_id: category.id, menu_itemable_type: 'ItemGroup' } }
+    @menu.menu_items.build(@menu_items.map { |menu_item| menu_item })
   end
 
   def create
