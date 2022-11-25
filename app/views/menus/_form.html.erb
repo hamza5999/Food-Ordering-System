@@ -26,6 +26,25 @@
 
     <div class="tab-pane fade" id="pills-2" role="tabpanel" aria-labelledby="pills-2">
       <div class="card">
+        <h5 class="card-header text-capitalize"><%= controller.action_name + " Menu Items" %></h5>
+
+        <div class="card-body">
+          <div class="card m-1 pt-3 pr-4 pl-3 fixed-scrollable">
+            <div class="form-group" id="menu_items">
+              <% f.object.menu_items.group_by(&:menu_itemable_type).each do |title, obj| %>
+                <h3 class="font-weight-bold"><%= title.titleize + 's' %></h3>
+                <%= f.fields_for :menu_items, obj do |nf| %>
+                  <%= render "menu_item_fields", f: nf %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-pane fade" id="pills-3" role="tabpanel" aria-labelledby="pills-3">
+      <div class="card">
         <h5 class="card-header text-capitalize"><%= controller.action_name + " Timing" %></h5>
 
         <div class="card-body">
