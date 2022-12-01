@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddPolymorphicAttributesToOrderItems < ActiveRecord::Migration[6.1]
   def change
     add_column :order_items, :orderable_type, :string

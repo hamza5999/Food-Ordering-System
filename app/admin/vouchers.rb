@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ActiveAdmin.register Voucher do
   filter :name
   filter :promo_code

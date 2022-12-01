@@ -1,0 +1,76 @@
+<div class="container mt-5">
+  <h1 class="mt-4 mx-3">View Food Item</h1>
+
+  <div class="card mt-4 col-sm-9">
+    <div class="card-header d-flex text-capitalize">
+      <h3>
+        <%= @food_item.name %>
+      </h3>
+
+      <div class="ml-auto">
+        <% if @food_item.discarded? %>
+          <%= link_to "Restore", restore_food_item_path(@food_item), method: :get, class: "badge badge-success text-white" %>
+          <%= link_to "Delete", food_item_path(@food_item), method: :delete, data: {confirm: "Are you sure !! You want to permanently delete this discount?"}, class: "badge badge-danger text-white" %>
+        <% else %>
+          <%= link_to "Edit", edit_food_item_path(@food_item), class: "badge badge-warning text-white" %>
+          <%= link_to "Discard", food_item_path(@food_item), method: :delete, data: {confirm: "Are you sure !! You want to discard this food item?"}, class: "badge badge-danger text-white" %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <div class="d-flex flex-column">
+        <div class="d-flex flex-row">
+          <h5 class="font-weight-bold">Name:</h5>
+
+          <h5 class="ml-2">
+            <%= @food_item.name %>
+          </h5>
+        </div>
+
+        <div class="d-flex flex-row">
+          <h5 class="font-weight-bold">Category:</h5>
+
+          <h5 class="ml-2 text-capitalize">
+            <%= @food_item.item_group.name %>
+          </h5>
+        </div>
+
+        <div class="d-flex flex-row">
+          <h5 class="font-weight-bold">Discount:</h5>
+
+          <h5 class="ml-2 text-capitalize">
+            <% if @food_item.discount %>
+              <%= @food_item.discount.name %>
+            <% else %>
+              none
+            <% end %>
+          </h5>
+        </div>
+
+        <div class="d-flex flex-row">
+          <h5 class="font-weight-bold">Price:</h5>
+
+          <ul class="list-group list-group-flush mx-5">
+            <% if @food_item.options.empty? %>
+              <li class="list-group-item text-capitalize p-0 ml-3">
+                <h6>
+                  No options available right now.
+                </h6>
+              </li>
+            <% else %>
+              <% @food_item.food_item_options.each do |op| %>
+                <li class="list-group-item text-capitalize p-0 ml-3">
+                  <h6>
+                    <b><%= op.option_name + ': ' %></b>Rs.
+                    <%= op.price %>
+                  </h6>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

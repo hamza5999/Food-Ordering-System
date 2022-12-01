@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddNameAndPriceToDeals < ActiveRecord::Migration[6.1]
   def change
     add_column :deals, :name, :string

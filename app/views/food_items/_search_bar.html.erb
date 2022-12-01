@@ -1,0 +1,4 @@
+<%= search_form_for @q, class: "form-inline" do |f| %>
+  <%= f.search_field :name_or_discount_name_or_item_group_name_cont, placeholder: "Search", class: "form-control navbar-search", autocomplete: "off" %>
+  <%= f.submit class: "d-none" %>
+<% end %>

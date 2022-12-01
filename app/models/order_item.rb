@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# An OrderItem belongs to an Order, and can be an Orderable (a Product or a Deal)
 class OrderItem < ApplicationRecord
   belongs_to :orderable, polymorphic: true
   belongs_to :order

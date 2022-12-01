@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ActiveAdmin.register Restaurant do
   filter :name
   filter :location

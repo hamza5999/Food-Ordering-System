@@ -1,0 +1,15 @@
+<div class="nested-fields">
+  <div class="row">
+    <div class="col-6 form-group">
+      <label>Option</label>
+      <input type="text" class="form-control border-secondary text-capitalize" autocomplete="off" value="<%= f.object.option.name %>" readonly>
+    </div>
+
+    <%= f.hidden_field :id %>
+
+    <div class="col-6 form-group">
+      <label>Price</label>
+      <%= f.number_field :price, class: "form-control border-secondary", required: true, min: 1 %>
+    </div>
+  </div>
+</div>

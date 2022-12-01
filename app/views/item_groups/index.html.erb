@@ -1,0 +1,66 @@
+<div class="container mt-5">
+  <div class="d-flex">
+    <h1 class="mt-5 mx-4">Available Categories</h1>
+
+    <% if @categories.present? %>
+      <div class="ml-auto mt-3 mr-4">
+        <%= search_form_for @q do |f| %>
+          <%= f.hidden_field :available_categories, id: "attainableCategories" %>
+          <%= f.hidden_field :unavailable_categories, id: "unattainableCategories" %>
+
+          <%= f.button "All", id: 'all_i_groups', type: "submit", class: "btn btn-success text-white" %>
+          <%= f.button "Available", id: 'available_i_groups', type: "submit", class: "btn btn-info text-white" %>
+          <%= f.button "Unavailable", id: 'unavailable_i_groups', type: "submit", class: "btn btn-dark text-white" %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="card-body">
+    <% if @categories.empty? %>
+      <h3 class="border ml-1">No category available</h3>
+    <% else %>
+      <table class="table table-hover table-bordered">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Sr #</th>
+            <th scope="col">Category</th>
+            <th scope="col">Availability</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @categories.each_with_index do |category, index| %>
+            <tr>
+              <td scope="row"><%= index + 1 %></td>
+              <td><%= category.name %></td>
+
+              <td class="text-capitalize">
+                <% if category.availability %>
+                  available
+                <% else %>
+                  unavailable
+                <% end %>
+              </td>
+
+              <td class="actionfield-width">
+                <%= link_to "Show", item_group_path(category), class: "badge badge-primary text-white" %>
+                <%= link_to "Edit", edit_item_group_path(category), class: "badge badge-warning text-white" %>
+                <%= link_to "Discard", item_group_path(category), method: :delete, data: {confirm: "Are you sure !! You want to discard this category?"}, class: "badge badge-danger text-white" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+</div>
+
+<% content_for :search_bar_partial do %>
+  <%= render "item_groups/search_bar" %>
+<% end %>
+
+<% content_for :js_init do %>
+  Category.initialize()
+<% end %>

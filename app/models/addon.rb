@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+# Addons belong to a restaurant, have many menu items and order items, and have many addon menu items
+# and addon order items
 class Addon < ApplicationRecord
   belongs_to :restaurant
 

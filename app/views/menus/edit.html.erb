@@ -1,0 +1,23 @@
+<div class="container mt-5">
+  <h1 class="mt-4 mx-4">Update Menu</h1>
+
+  <div class="card">
+    <div class="card-body">
+      <ul class="nav nav-pills nav-pills-primary mb-3" id="pills-demo-1" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link" id="pills-1-tab" data-toggle="pill" href="#pills-1" role="tab" aria-controls="pills-1" aria-selected="true">Details</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" id="pills-2-tab" data-toggle="pill" href="#pills-2" role="tab" aria-controls="pills-2" aria-selected="false">Items</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" id="pills-3-tab" data-toggle="pill" href="#pills-3" role="tab" aria-controls="pills-3" aria-selected="false">Timings</a>
+        </li>
+      </ul>
+
+      <%= render "menus/form", menu: @menu %>
+    </div>
+  </div>
+</div>

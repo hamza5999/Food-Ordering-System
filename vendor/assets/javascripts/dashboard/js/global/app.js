@@ -182,7 +182,8 @@ import {default as Switchery} from "vendor/switchery-npm/index"
 
 (function(window, document, $, undefined) {
   "use strict";
-  $(function() {
+
+  $(document).on('turbolinks:load', () => {
     // init sidebars
     // --------------------
     $(".nav.metismenu").metisMenu();
@@ -204,16 +205,16 @@ import {default as Switchery} from "vendor/switchery-npm/index"
     });
     // If sidebar is set to static
     // ------------------------------------------------
-    if($("body.fixed-menu")){
-      $("body.fixed-menu .main-menu").mCustomScrollbar({
-        theme: "minimal-dark",
-        scrollInertia: 100,
-        setTop: "-999999px",
-        mouseWheel: {
-          preventDefault: true
-        }
-      });
-    }
+    // if($("body.fixed-menu")){
+    //   $("body.fixed-menu .main-menu").mCustomScrollbar({
+    //     theme: "minimal-dark",
+    //     scrollInertia: 100,
+    //     setTop: "-999999px",
+    //     mouseWheel: {
+    //       preventDefault: true
+    //     }
+    //   });
+    // }
 
     // Toggle menu states
     // ----------------------------------
@@ -281,7 +282,7 @@ import {default as Switchery} from "vendor/switchery-npm/index"
 
 (function(window, document, $, undefined) {
   "use strict";
-  $(function() {
+  $(document).on('turbolinks:load', () => {
     $("[data-q-action]").on("click", function(e) {
       e.stopPropagation();
       var $this = $(this),

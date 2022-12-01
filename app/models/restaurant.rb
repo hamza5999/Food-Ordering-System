@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+# A restaurant has many orders, employees, restaurant_timings, menu_items, menus, discounts, addons,
+# and options
 class Restaurant < ApplicationRecord
   has_many :orders
   has_many :employees

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateJoinTableMenuItemAddon < ActiveRecord::Migration[6.1]
   def change
     create_join_table :menu_items, :addons do |t|
