@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateJoinTableCustomerVoucher < ActiveRecord::Migration[6.1]
   def change
     create_join_table :customers, :vouchers do |t|

@@ -1,0 +1,84 @@
+<div class="container mt-5">
+  <h1 class="mt-4 mx-3">View Discount</h1>
+
+  <div class="card mt-4 col-sm-9">
+    <div class="card-header d-flex text-capitalize">
+      <h3>
+        <%= @discount.name %>
+      </h3>
+
+      <div class="ml-auto">
+        <% if @discount.discarded? %>
+          <%= link_to "Restore", restore_discount_path(@discount), method: :get, class: "badge badge-success text-white" %>
+          <%= link_to "Delete", discount_path(@discount), method: :delete, data: {confirm: "Are you sure !! You want to permanently delete this discount?"}, class: "badge badge-danger text-white" %>
+        <% else %>
+          <%= link_to "Edit", edit_discount_path(@discount), class: "badge badge-warning text-white" %>
+          <%= link_to "Discard", discount_path(@discount), method: :delete, data: {confirm: "Are you sure !! You want to discard this discount?"}, class: "badge badge-danger text-white" %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <div class="d-flex flex-column">
+        <div class="d-flex flex-row">
+          <h5 class="font-weight-bold">Name:</h5>
+
+          <h5 class="ml-2">
+            <%= @discount.name %>
+          </h5>
+        </div>
+
+        <div class="d-flex flex-row">
+          <h5 class="font-weight-bold">Type:</h5>
+
+          <h5 class="ml-2 text-capitalize">
+            <%= @discount.kind %>
+          </h5>
+        </div>
+
+        <div class="d-flex flex-row">
+          <h5 class="font-weight-bold">Discount:</h5>
+
+          <h5 class="ml-2 text-capitalize">
+            <%= @discount.value %>
+          </h5>
+        </div>
+
+        <div class="d-flex flex-row">
+          <h5 class="font-weight-bold">Status:</h5>
+
+          <h5 class="ml-2 text-capitalize">
+            <% if @discount.status %>
+              active
+            <% else %>
+              expired
+            <% end %>
+          </h5>
+        </div>
+
+        <div class="d-flex flex-row mt-3">
+          <h5 class="font-weight-bold">Timelines:</h5>
+
+          <ul class="list-group list-group-flush mx-5">
+            <% if @discount_timelines.empty? %>
+              <li class="list-group-item text-capitalize p-0 ml-3">
+                <h6>
+                  No timeline available
+                </h6>
+              </li>
+            <% else %>
+              <% @discount_timelines.each do |dt| %>
+                <li class="list-group-item text-capitalize p-0 ml-3">
+                  <h6>
+                    <b>From: </b><%= getDateOnly(dt.start_date) %>
+                    <b>To: </b><%= getDateOnly(dt.end_date) %>
+                  </h6>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

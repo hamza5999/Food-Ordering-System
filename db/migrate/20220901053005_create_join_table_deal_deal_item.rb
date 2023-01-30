@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateJoinTableDealDealItem < ActiveRecord::Migration[6.1]
   def change
     create_join_table :deals, :deal_items do |t|

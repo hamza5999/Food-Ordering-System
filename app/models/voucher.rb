@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# A Voucher has many Orders, VoucherTimelines, CustomerVouchers, and Customers
 class Voucher < ApplicationRecord
   has_many :orders
   has_many :voucher_timelines

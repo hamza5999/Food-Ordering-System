@@ -1,0 +1,33 @@
+<div class="nested-fields">
+  <div class="card p-2">
+    <div class="row">
+      <div class="form-group col-12 ml-3 pr-5">
+        <%= f.label :days, "Day" %>
+
+        <div class="day-selectionfield-width">
+          <%= f.collection_select :days, MenuTiming.days.keys, :to_s, :titleize, {prompt: "Select a day"}, class: "form-control border-secondary text-dark" %>
+        </div>
+      </div>
+
+      <div class="col-6 form-group">
+        <%= f.label :start_time, "From", class: "col col-form-label" %>
+
+        <div class="col-sm-10">
+          <%= f.time_field :start_time, class: "form-control border-secondary input-width" %>
+        </div>
+      </div>
+
+      <div class="col-6 form-group">
+        <%= f.label :end_time, "To", class: "col col-form-label" %>
+
+        <div class="col-sm-10 input-width">
+          <%= f.time_field :end_time, class: "form-control border-secondary input-width" %>
+        </div>
+      </div>
+
+      <div class="delete-button-margin">
+        <%= link_to_remove_association "Delete", f, class: "btn-sm btn-danger text-white" %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<div class="container mt-5">
+  <div class="d-flex">
+    <h1 class="mt-5 mx-4">Available Menus</h1>
+  </div>
+
+  <div class="card-body">
+    <% if @menus.empty? %>
+      <h3 class="border ml-1">No menu available</h3>
+    <% else %>
+      <table class="table table-hover table-bordered">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Sr #</th>
+            <th scope="col">Title</th>
+            <th scope="col">Availability</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @menus.each_with_index do |menu, index| %>
+            <tr>
+              <td scope="row"><%= index + 1 %></td>
+              <td class="text-capitalize"><%= menu.title %></td>
+
+              <% if menu.availability %>
+                <td class="text-capitalize">Available</td>
+              <% else %>
+                <td class="text-capitalize">Unavailable</td>
+              <% end %>
+
+              <td class="actionfield-width">
+                <%= link_to "Show", menu_path(menu), class: "badge badge-primary text-white" %>
+                <%= link_to "Edit", edit_menu_path(menu), class: "badge badge-warning text-white" %>
+                <%= link_to "Discard", menu_path(menu), method: :delete, data: {confirm: "Are you sure !! You want to discard this menu?"}, class: "badge badge-danger text-white" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+</div>
+
+<% content_for :search_bar_partial do %>
+  <%= render 'menus/search_bar' %>
+<% end %>

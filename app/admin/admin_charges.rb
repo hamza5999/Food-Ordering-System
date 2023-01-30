@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 ActiveAdmin.register AdminCharge do
-  actions :all, :except => [:new, :edit]
+  actions :all, except: %i[new edit]
 
   filter :admin_amount
   filter :order_id

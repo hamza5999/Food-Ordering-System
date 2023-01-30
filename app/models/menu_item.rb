@@ -1,9 +1,9 @@
-class MenuItem < ApplicationRecord
-  belongs_to :menuable, polymorphic: true
-  belongs_to :restaurant
+# frozen_string_literal: true
 
-  has_many :menu_item_menus
-  has_many :menus, through: :menu_item_menus
+# A MenuItem belongs to a MenuItemable, which is a polymorphic association. It belongs to a Restaurant and Menu
+class MenuItem < ApplicationRecord
+  belongs_to :menu_itemable, polymorphic: true
+  belongs_to :menu
 
   has_many :addon_menu_items
   has_many :addons, through: :addon_menu_items

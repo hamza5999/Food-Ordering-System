@@ -1,0 +1,71 @@
+<div class="container mt-5">
+  <div class="d-flex">
+    <h1 class="mt-5 mx-4">Your Profile</h1>
+  </div>
+
+  <div class="row">
+    <div class="col-xl-3 col-lg-4">
+      <div class="card">
+        <div class="card-body">
+          <div class="tab-content profile-card text-center mb-1">
+            <div class="thumb-xl member-thumb m-b-10 center-block">
+              <% if @employee.profile_pic.persisted? %>
+                <%= image_tag @employee.profile_pic, class: "w-160 h-150 rounded-circle mb-1", alt: "profile pic" %>
+              <% else %>
+                <%= image_tag 'img/avatars/no-profile', class: "rounded-circle", alt: "profile avatar" %>
+              <% end %>
+            </div><hr>
+
+            <div>
+              <h5 class="m-b-5 text-capitalize"><%= @employee.employee_fullname %></h5>
+              <p class="text-muted text-lowercase">@<%= @employee.first_name + @employee.last_name %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <div class="tab-content">
+            <h3 class="d-inline card-title">Profile details</h3>
+            <%= link_to "Edit", edit_employee_registration_path, class: "float-right badge badge-warning text-white" %><hr>
+
+            <ul class="list-reset p-t-10">
+              <li class="p-b-10 text-capitalize">
+                <span class="w-150 d-inline-block font-weight-bold">First name:</span>
+                <span><%= @employee.first_name %></span>
+              </li>
+
+              <li class="p-b-10 text-capitalize">
+                <span class="w-150 d-inline-block font-weight-bold">Last name:</span>
+                <span><%= @employee.last_name %></span>
+              </li>
+
+              <li class="p-b-10">
+                <span class="w-150 d-inline-block font-weight-bold">Phone:</span>
+                <span><%= @employee.phone %></span>
+              </li>
+
+              <li class="p-b-10">
+                <span class="w-150 d-inline-block font-weight-bold">Email:</span>
+                <span><%= @employee.email %></span>
+              </li>
+
+              <li class="p-b-10 text-capitalize">
+                <span class="w-150 d-inline-block font-weight-bold">Designation:</span>
+                <span><%= @employee.designation %></span>
+              </li>
+
+              <li class="p-b-10 text-capitalize">
+                <span class="w-150 d-inline-block font-weight-bold">Manager:</span>
+                <span><%= @employee.manager.employee_fullname %></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

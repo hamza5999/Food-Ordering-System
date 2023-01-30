@@ -8,6 +8,25 @@
 // $sidebar-width: 242px;
 
 // Active Admin's got SASS!
+$success-color: #2FBFA0;
+$info-color: #399AF2;
+$dark-color: #343A40;
+
+.btn-success[type="submit"]{
+  background: $success-color !important;
+  text-shadow: none !important;
+}
+
+.btn-info[type="submit"]{
+  background: $info-color !important;
+  text-shadow: none !important;
+}
+
+.btn-dark[type="submit"]{
+  background: $dark-color !important;
+  text-shadow: none !important;
+}
+
 @import "active_admin/mixins";
 @import "active_admin/base";
 

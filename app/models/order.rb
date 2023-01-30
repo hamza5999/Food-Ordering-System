@@ -1,5 +1,9 @@
+# frozen_string_literal: true
+
+# An order belongs to a restaurant, voucher, customer, and employee, has one admin charge, restaurant
+# due, payment, and rating, and has many order items
 class Order < ApplicationRecord
-  enum status: {pending: 0, complete: 1}
+  enum status: { pending: 0, complete: 1 }
 
   belongs_to :restaurant
   belongs_to :voucher

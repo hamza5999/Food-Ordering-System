@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateVoucherTimelines < ActiveRecord::Migration[6.1]
   def change
     create_table :voucher_timelines do |t|

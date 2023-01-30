@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# A customer has many orders, addresses, ratings, and vouchers
 class Customer < ApplicationRecord
   has_many :orders
   has_many :addresses

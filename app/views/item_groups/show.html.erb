@@ -1,0 +1,67 @@
+<div class="container mt-5">
+  <h1 class="mt-4 mx-3">View Category</h1>
+
+  <div class="card mt-4 col-sm-9">
+    <div class="card-header d-flex">
+      <h3>
+        <%= @item_group.name %>
+      </h3>
+
+      <div class="ml-auto">
+        <% if @item_group.discarded? %>
+          <%= link_to "Restore", restore_item_group_path(@item_group), method: :get, class: "badge badge-success text-white" %>
+          <%= link_to "Delete", item_group_path(@item_group), method: :delete, data: {confirm: "Are you sure !! You want to permanently delete this category?"}, class: "badge badge-danger text-white" %>
+        <% else %>
+          <%= link_to "Edit", edit_item_group_path(@item_group), class: "badge badge-warning text-white" %>
+          <%= link_to "Discard", item_group_path(@item_group), method: :delete, data: {confirm: "Are you sure !! You want to discard this category?"}, class: "badge badge-danger text-white" %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <div class="d-flex flex-column">
+        <div class="d-flex flex-row">
+          <h5 class="font-weight-bold">Category name:</h5>
+
+          <h5 class="ml-2">
+            <%= @item_group.name %>
+          </h5>
+        </div>
+
+        <div class="d-flex flex-row">
+          <h5 class="font-weight-bold">Availability:</h5>
+
+          <h5 class="ml-2 text-capitalize">
+            <% if @item_group.availability %> 
+              available
+            <% else %>
+              unavailable
+            <% end %>
+          </h5>
+        </div>
+
+        <div class="d-flex flex-row mt-3">
+          <h5 class="font-weight-bold">Options:</h5>
+
+          <ul class="list-group list-group-flush mx-5">
+            <% if @options.empty? %>
+              <li class="list-group-item text-capitalize p-0 ml-3">
+                <h6>
+                  No options
+                </h6>
+              </li>
+            <% else %>
+              <% @options.each do |o| %>
+                <li class="list-group-item text-capitalize p-0 ml-3">
+                  <h6>
+                    <%= o.name %>
+                  </h6>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
